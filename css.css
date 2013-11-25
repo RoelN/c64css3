@@ -1,0 +1,858 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+
+/* apply a natural box layout model to all elements */
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+ }
+
+
+/* C64CSS3 */
+html, body {
+  height: 100%;
+}
+body {
+  background: #333;
+}
+@font-face {
+   font-family: "C64 User Mono";
+   src: url("C64_User_Mono_v1.0-STYLE.woff") format("woff");
+}
+@font-face {
+  font-family: 'giana';
+  src: url('giana.eot');
+  src: url('giana.eot?#iefix') format('embedded-opentype'),
+       url('giana.woff') format('woff'),
+       url('giana.ttf') format('truetype'),
+       url('giana.svg#gianamedium') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+main {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+/* The screen */
+section {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 320px;
+  height: 200px;
+
+  margin-top: -100px; /* Half the screen's height */
+  margin-left: -160px;
+
+  color: #6076c5;
+  font: normal 8px "C64 User Mono";
+
+  z-index: 1;
+}
+/* Border of the sceen */
+section:before {
+  position: absolute;
+  left: -32px;
+  right: -32px;
+  top: -37px;
+  bottom: -37px;
+  content: "";
+  background: #6076c5;
+  z-index: -1;
+}
+/* Inside screen */
+section:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  content: "";
+  background: #20398d;
+  z-index: -1;
+}
+
+
+
+
+
+p {
+    white-space: pre;
+    text-transform: uppercase;
+}
+
+
+
+
+/* Blue screen */
+@-webkit-keyframes blinkingCursor {
+  0% {
+    background: #6076c5;
+  }
+  50% {
+    background: #20398d;
+  }
+}
+
+
+
+
+
+
+
+
+
+.loadingLine1,
+.loadingLine2,
+.loadingLine3,
+.loadingLine4 {
+  padding-right: 1em;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  float: left;
+  clear: left;
+}
+
+
+@-webkit-keyframes typingLine1 {
+  from {
+    height: auto;
+    text-indent: 0;
+  }
+  to {
+    height: auto;
+    width: 31em; /* Number of chars in line 1 + one for cursor */
+    text-indent: 0;
+  }
+}
+.loadingLine1 {
+  width: 1em;
+  height: auto;
+  text-indent: 1em;
+
+  -webkit-animation-name: typingLine1;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-duration: 4s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(30);
+  -webkit-animation-fill-mode: forwards;
+}
+.loadingLine1:before {
+  width: 1em;
+  height: 1em;
+  background: #6076c5;
+  content: "";
+  position: absolute;
+  right: 0;
+
+  -webkit-animation-name: blinkingCursor;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 8; /* must be even, so we end on invisible cursor */
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes typingLine2 {
+  to {
+    width: auto;
+    height: auto;
+  }
+}
+.loadingLine2 {
+  -webkit-animation-delay: 8s; /* after loadingLine1 */
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: typingLine2;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+
+
+
+@-webkit-keyframes typingLine2 {
+  to {
+    width: auto;
+    height: auto;
+  }
+}
+.loadingLine3 {
+  -webkit-animation-delay: 11s; /* after loadingLine1 */
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: typingLine2;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+
+
+
+
+@-webkit-keyframes typingLine4 {
+  from {
+    height: auto;
+    text-indent: 0;
+  }
+  to {
+    height: auto;
+    width: 4em; /* Number of chars in line 1 + one for cursor */
+    text-indent: 0;
+  }
+}
+.loadingLine4 {
+  width: 1em;
+  height: auto;
+  text-indent: 1em;
+  -webkit-animation-delay: 12s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: typingLine4;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(3);
+  -webkit-animation-fill-mode: forwards;
+}
+.loadingLine4:before {
+  width: 1em;
+  height: 1em;
+  content: "";
+  position: absolute;
+  right: 0;
+
+  -webkit-animation-name: blinkingCursor;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 11s; /* start right after loadingLine3 is finished */
+  -webkit-animation-iteration-count: 4; /* must be even, so we end on invisible cursor */
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes deCrunch {
+  20% {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 5%, #000000 5%, #000000 10%, #b8b8b8 10%, #b8b8b8 16%, #5090d0 16%, #5090d0 23%, #98ff98 23%, #98ff98 28%, #808080 28%, #808080 33%, #484848 33%, #484848 40%, #c87870 40%, #c87870 46%, #472b1b 46%, #472b1b 51%, #a04800 51%, #a04800 57%, #f0e858 57%, #f0e858 62%, #181090 62%, #181090 69%, #50b818 69%, #50b818 78%, #a838a0 78%, #a838a0 86%, #68d0a8 86%, #68d0a8 95%, #882000 95%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#ffffff), color-stop(5%,#000000), color-stop(10%,#000000), color-stop(10%,#b8b8b8), color-stop(16%,#b8b8b8), color-stop(16%,#5090d0), color-stop(23%,#5090d0), color-stop(23%,#98ff98), color-stop(28%,#98ff98), color-stop(28%,#808080), color-stop(33%,#808080), color-stop(33%,#484848), color-stop(40%,#484848), color-stop(40%,#c87870), color-stop(46%,#c87870), color-stop(46%,#472b1b), color-stop(51%,#472b1b), color-stop(51%,#a04800), color-stop(57%,#a04800), color-stop(57%,#f0e858), color-stop(62%,#f0e858), color-stop(62%,#181090), color-stop(69%,#181090), color-stop(69%,#50b818), color-stop(78%,#50b818), color-stop(78%,#a838a0), color-stop(86%,#a838a0), color-stop(86%,#68d0a8), color-stop(95%,#68d0a8), color-stop(95%,#882000));
+    background: -webkit-linear-gradient(top, #ffffff 5%,#000000 5%,#000000 10%,#b8b8b8 10%,#b8b8b8 16%,#5090d0 16%,#5090d0 23%,#98ff98 23%,#98ff98 28%,#808080 28%,#808080 33%,#484848 33%,#484848 40%,#c87870 40%,#c87870 46%,#472b1b 46%,#472b1b 51%,#a04800 51%,#a04800 57%,#f0e858 57%,#f0e858 62%,#181090 62%,#181090 69%,#50b818 69%,#50b818 78%,#a838a0 78%,#a838a0 86%,#68d0a8 86%,#68d0a8 95%,#882000 95%);
+    background: -o-linear-gradient(top, #ffffff 5%,#000000 5%,#000000 10%,#b8b8b8 10%,#b8b8b8 16%,#5090d0 16%,#5090d0 23%,#98ff98 23%,#98ff98 28%,#808080 28%,#808080 33%,#484848 33%,#484848 40%,#c87870 40%,#c87870 46%,#472b1b 46%,#472b1b 51%,#a04800 51%,#a04800 57%,#f0e858 57%,#f0e858 62%,#181090 62%,#181090 69%,#50b818 69%,#50b818 78%,#a838a0 78%,#a838a0 86%,#68d0a8 86%,#68d0a8 95%,#882000 95%);
+    background: -ms-linear-gradient(top, #ffffff 5%,#000000 5%,#000000 10%,#b8b8b8 10%,#b8b8b8 16%,#5090d0 16%,#5090d0 23%,#98ff98 23%,#98ff98 28%,#808080 28%,#808080 33%,#484848 33%,#484848 40%,#c87870 40%,#c87870 46%,#472b1b 46%,#472b1b 51%,#a04800 51%,#a04800 57%,#f0e858 57%,#f0e858 62%,#181090 62%,#181090 69%,#50b818 69%,#50b818 78%,#a838a0 78%,#a838a0 86%,#68d0a8 86%,#68d0a8 95%,#882000 95%);
+    background: linear-gradient(to bottom, #ffffff 5%,#000000 5%,#000000 10%,#b8b8b8 10%,#b8b8b8 16%,#5090d0 16%,#5090d0 23%,#98ff98 23%,#98ff98 28%,#808080 28%,#808080 33%,#484848 33%,#484848 40%,#c87870 40%,#c87870 46%,#472b1b 46%,#472b1b 51%,#a04800 51%,#a04800 57%,#f0e858 57%,#f0e858 62%,#181090 62%,#181090 69%,#50b818 69%,#50b818 78%,#a838a0 78%,#a838a0 86%,#68d0a8 86%,#68d0a8 95%,#882000 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#882000',GradientType=0 );
+  }
+  40% {
+    background: #882000;
+    background: -moz-linear-gradient(top,  #882000 10%, #68d0a8 10%, #68d0a8 12%, #a838a0 12%, #a838a0 18%, #50b818 18%, #50b818 27%, #181090 27%, #181090 38%, #f0e858 38%, #f0e858 41%, #a04800 41%, #a04800 56%, #472b1b 56%, #472b1b 61%, #c87870 61%, #c87870 66%, #484848 66%, #484848 68%, #808080 68%, #808080 75%, #98ff98 75%, #98ff98 77%, #5090d0 77%, #5090d0 92%, #b8b8b8 92%, #b8b8b8 94%, #000000 94%, #000000 97%, #ffffff 97%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(10%,#882000), color-stop(10%,#68d0a8), color-stop(12%,#68d0a8), color-stop(12%,#a838a0), color-stop(18%,#a838a0), color-stop(18%,#50b818), color-stop(27%,#50b818), color-stop(27%,#181090), color-stop(38%,#181090), color-stop(38%,#f0e858), color-stop(41%,#f0e858), color-stop(41%,#a04800), color-stop(56%,#a04800), color-stop(56%,#472b1b), color-stop(61%,#472b1b), color-stop(61%,#c87870), color-stop(66%,#c87870), color-stop(66%,#484848), color-stop(68%,#484848), color-stop(68%,#808080), color-stop(75%,#808080), color-stop(75%,#98ff98), color-stop(77%,#98ff98), color-stop(77%,#5090d0), color-stop(92%,#5090d0), color-stop(92%,#b8b8b8), color-stop(94%,#b8b8b8), color-stop(94%,#000000), color-stop(97%,#000000), color-stop(97%,#ffffff));
+    background: -webkit-linear-gradient(top,  #882000 10%,#68d0a8 10%,#68d0a8 12%,#a838a0 12%,#a838a0 18%,#50b818 18%,#50b818 27%,#181090 27%,#181090 38%,#f0e858 38%,#f0e858 41%,#a04800 41%,#a04800 56%,#472b1b 56%,#472b1b 61%,#c87870 61%,#c87870 66%,#484848 66%,#484848 68%,#808080 68%,#808080 75%,#98ff98 75%,#98ff98 77%,#5090d0 77%,#5090d0 92%,#b8b8b8 92%,#b8b8b8 94%,#000000 94%,#000000 97%,#ffffff 97%);
+    background: -o-linear-gradient(top,  #882000 10%,#68d0a8 10%,#68d0a8 12%,#a838a0 12%,#a838a0 18%,#50b818 18%,#50b818 27%,#181090 27%,#181090 38%,#f0e858 38%,#f0e858 41%,#a04800 41%,#a04800 56%,#472b1b 56%,#472b1b 61%,#c87870 61%,#c87870 66%,#484848 66%,#484848 68%,#808080 68%,#808080 75%,#98ff98 75%,#98ff98 77%,#5090d0 77%,#5090d0 92%,#b8b8b8 92%,#b8b8b8 94%,#000000 94%,#000000 97%,#ffffff 97%);
+    background: -ms-linear-gradient(top,  #882000 10%,#68d0a8 10%,#68d0a8 12%,#a838a0 12%,#a838a0 18%,#50b818 18%,#50b818 27%,#181090 27%,#181090 38%,#f0e858 38%,#f0e858 41%,#a04800 41%,#a04800 56%,#472b1b 56%,#472b1b 61%,#c87870 61%,#c87870 66%,#484848 66%,#484848 68%,#808080 68%,#808080 75%,#98ff98 75%,#98ff98 77%,#5090d0 77%,#5090d0 92%,#b8b8b8 92%,#b8b8b8 94%,#000000 94%,#000000 97%,#ffffff 97%);
+    background: linear-gradient(to bottom,  #882000 10%,#68d0a8 10%,#68d0a8 12%,#a838a0 12%,#a838a0 18%,#50b818 18%,#50b818 27%,#181090 27%,#181090 38%,#f0e858 38%,#f0e858 41%,#a04800 41%,#a04800 56%,#472b1b 56%,#472b1b 61%,#c87870 61%,#c87870 66%,#484848 66%,#484848 68%,#808080 68%,#808080 75%,#98ff98 75%,#98ff98 77%,#5090d0 77%,#5090d0 92%,#b8b8b8 92%,#b8b8b8 94%,#000000 94%,#000000 97%,#ffffff 97%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#882000', endColorstr='#ffffff',GradientType=0 );
+  }
+  60% {
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 5%, #c87870 5%, #c87870 14%, #484848 14%, #484848 22%, #808080 22%, #808080 31%, #98ff98 31%, #98ff98 38%, #5090d0 38%, #5090d0 43%, #b8b8b8 43%, #b8b8b8 49%, #000000 49%, #000000 54%, #68d0a8 54%, #68d0a8 60%, #a838a0 60%, #a838a0 67%, #50b818 67%, #50b818 72%, #181090 72%, #181090 77%, #f0e858 77%, #f0e858 84%, #a04800 84%, #a04800 90%, #472b1b 90%, #472b1b 95%, #882000 95%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#ffffff), color-stop(5%,#c87870), color-stop(14%,#c87870), color-stop(14%,#484848), color-stop(22%,#484848), color-stop(22%,#808080), color-stop(31%,#808080), color-stop(31%,#98ff98), color-stop(38%,#98ff98), color-stop(38%,#5090d0), color-stop(43%,#5090d0), color-stop(43%,#b8b8b8), color-stop(49%,#b8b8b8), color-stop(49%,#000000), color-stop(54%,#000000), color-stop(54%,#68d0a8), color-stop(60%,#68d0a8), color-stop(60%,#a838a0), color-stop(67%,#a838a0), color-stop(67%,#50b818), color-stop(72%,#50b818), color-stop(72%,#181090), color-stop(77%,#181090), color-stop(77%,#f0e858), color-stop(84%,#f0e858), color-stop(84%,#a04800), color-stop(90%,#a04800), color-stop(90%,#472b1b), color-stop(95%,#472b1b), color-stop(95%,#882000));
+    background: -webkit-linear-gradient(top,  #ffffff 5%,#c87870 5%,#c87870 14%,#484848 14%,#484848 22%,#808080 22%,#808080 31%,#98ff98 31%,#98ff98 38%,#5090d0 38%,#5090d0 43%,#b8b8b8 43%,#b8b8b8 49%,#000000 49%,#000000 54%,#68d0a8 54%,#68d0a8 60%,#a838a0 60%,#a838a0 67%,#50b818 67%,#50b818 72%,#181090 72%,#181090 77%,#f0e858 77%,#f0e858 84%,#a04800 84%,#a04800 90%,#472b1b 90%,#472b1b 95%,#882000 95%);
+    background: -o-linear-gradient(top,  #ffffff 5%,#c87870 5%,#c87870 14%,#484848 14%,#484848 22%,#808080 22%,#808080 31%,#98ff98 31%,#98ff98 38%,#5090d0 38%,#5090d0 43%,#b8b8b8 43%,#b8b8b8 49%,#000000 49%,#000000 54%,#68d0a8 54%,#68d0a8 60%,#a838a0 60%,#a838a0 67%,#50b818 67%,#50b818 72%,#181090 72%,#181090 77%,#f0e858 77%,#f0e858 84%,#a04800 84%,#a04800 90%,#472b1b 90%,#472b1b 95%,#882000 95%);
+    background: -ms-linear-gradient(top,  #ffffff 5%,#c87870 5%,#c87870 14%,#484848 14%,#484848 22%,#808080 22%,#808080 31%,#98ff98 31%,#98ff98 38%,#5090d0 38%,#5090d0 43%,#b8b8b8 43%,#b8b8b8 49%,#000000 49%,#000000 54%,#68d0a8 54%,#68d0a8 60%,#a838a0 60%,#a838a0 67%,#50b818 67%,#50b818 72%,#181090 72%,#181090 77%,#f0e858 77%,#f0e858 84%,#a04800 84%,#a04800 90%,#472b1b 90%,#472b1b 95%,#882000 95%);
+    background: linear-gradient(to bottom,  #ffffff 5%,#c87870 5%,#c87870 14%,#484848 14%,#484848 22%,#808080 22%,#808080 31%,#98ff98 31%,#98ff98 38%,#5090d0 38%,#5090d0 43%,#b8b8b8 43%,#b8b8b8 49%,#000000 49%,#000000 54%,#68d0a8 54%,#68d0a8 60%,#a838a0 60%,#a838a0 67%,#50b818 67%,#50b818 72%,#181090 72%,#181090 77%,#f0e858 77%,#f0e858 84%,#a04800 84%,#a04800 90%,#472b1b 90%,#472b1b 95%,#882000 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#882000',GradientType=0 );
+  }
+  80% {
+    background: #882000;
+    background: -moz-linear-gradient(top, #882000 5%, #68d0a8 5%, #68d0a8 14%, #a838a0 14%, #a838a0 22%, #50b818 22%, #50b818 31%, #181090 31%, #181090 38%, #f0e858 38%, #f0e858 43%, #a04800 43%, #a04800 49%, #472b1b 49%, #472b1b 54%, #c87870 54%, #c87870 60%, #484848 60%, #484848 67%, #808080 67%, #808080 72%, #98ff98 72%, #98ff98 77%, #5090d0 77%, #5090d0 84%, #b8b8b8 84%, #b8b8b8 90%, #000000 90%, #000000 95%, #ffffff 95%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(5%,#882000), color-stop(5%,#68d0a8), color-stop(14%,#68d0a8), color-stop(14%,#a838a0), color-stop(22%,#a838a0), color-stop(22%,#50b818), color-stop(31%,#50b818), color-stop(31%,#181090), color-stop(38%,#181090), color-stop(38%,#f0e858), color-stop(43%,#f0e858), color-stop(43%,#a04800), color-stop(49%,#a04800), color-stop(49%,#472b1b), color-stop(54%,#472b1b), color-stop(54%,#c87870), color-stop(60%,#c87870), color-stop(60%,#484848), color-stop(67%,#484848), color-stop(67%,#808080), color-stop(72%,#808080), color-stop(72%,#98ff98), color-stop(77%,#98ff98), color-stop(77%,#5090d0), color-stop(84%,#5090d0), color-stop(84%,#b8b8b8), color-stop(90%,#b8b8b8), color-stop(90%,#000000), color-stop(95%,#000000), color-stop(95%,#ffffff));
+    background: -webkit-linear-gradient(top, #882000 5%,#68d0a8 5%,#68d0a8 14%,#a838a0 14%,#a838a0 22%,#50b818 22%,#50b818 31%,#181090 31%,#181090 38%,#f0e858 38%,#f0e858 43%,#a04800 43%,#a04800 49%,#472b1b 49%,#472b1b 54%,#c87870 54%,#c87870 60%,#484848 60%,#484848 67%,#808080 67%,#808080 72%,#98ff98 72%,#98ff98 77%,#5090d0 77%,#5090d0 84%,#b8b8b8 84%,#b8b8b8 90%,#000000 90%,#000000 95%,#ffffff 95%);
+    background: -o-linear-gradient(top, #882000 5%,#68d0a8 5%,#68d0a8 14%,#a838a0 14%,#a838a0 22%,#50b818 22%,#50b818 31%,#181090 31%,#181090 38%,#f0e858 38%,#f0e858 43%,#a04800 43%,#a04800 49%,#472b1b 49%,#472b1b 54%,#c87870 54%,#c87870 60%,#484848 60%,#484848 67%,#808080 67%,#808080 72%,#98ff98 72%,#98ff98 77%,#5090d0 77%,#5090d0 84%,#b8b8b8 84%,#b8b8b8 90%,#000000 90%,#000000 95%,#ffffff 95%);
+    background: -ms-linear-gradient(top, #882000 5%,#68d0a8 5%,#68d0a8 14%,#a838a0 14%,#a838a0 22%,#50b818 22%,#50b818 31%,#181090 31%,#181090 38%,#f0e858 38%,#f0e858 43%,#a04800 43%,#a04800 49%,#472b1b 49%,#472b1b 54%,#c87870 54%,#c87870 60%,#484848 60%,#484848 67%,#808080 67%,#808080 72%,#98ff98 72%,#98ff98 77%,#5090d0 77%,#5090d0 84%,#b8b8b8 84%,#b8b8b8 90%,#000000 90%,#000000 95%,#ffffff 95%);
+    background: linear-gradient(to bottom, #882000 5%,#68d0a8 5%,#68d0a8 14%,#a 838a0 14%,#a838a0 22%,#50b818 22%,#50b818 31%,#181090 31%,#181090 38%,#f0e858 38%,#f0e858 43%,#a04800 43%,#a04800 49%,#472b1b 49%,#472b1b 54%,#c87870 54%,#c87870 60%,#484848 60%,#484848 67%,#808080 67%,#808080 72%,#98ff98 72%,#98ff98 77%,#5090d0 77%,#5090d0 84%,#b8b8b8 84%,#b8b8b8 90%,#000000 90%,#000000 95%,#ffffff 95%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#882000', endColorstr='#ffffff',GradientType=0 );
+  }
+  100% {
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 3%, #000000 3%, #000000 6%, #b8b8b8 6%, #b8b8b8 8%, #5090d0 8%, #5090d0 23%, #98ff98 23%, #98ff98 25%, #808080 25%, #808080 32%, #484848 32%, #484848 34%, #c87870 34%, #c87870 39%, #472b1b 39%, #472b1b 44%, #a04800 44%, #a04800 59%, #f0e858 59%, #f0e858 62%, #181090 62%, #181090 73%, #50b818 73%, #50b818 82%, #a838a0 82%, #a838a0 88%, #68d0a8 88%, #68d0a8 90%, #882000 90%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,#ffffff), color-stop(3%,#000000), color-stop(6%,#000000), color-stop(6%,#b8b8b8), color-stop(8%,#b8b8b8), color-stop(8%,#5090d0), color-stop(23%,#5090d0), color-stop(23%,#98ff98), color-stop(25%,#98ff98), color-stop(25%,#808080), color-stop(32%,#808080), color-stop(32%,#484848), color-stop(34%,#484848), color-stop(34%,#c87870), color-stop(39%,#c87870), color-stop(39%,#472b1b), color-stop(44%,#472b1b), color-stop(44%,#a04800), color-stop(59%,#a04800), color-stop(59%,#f0e858), color-stop(62%,#f0e858), color-stop(62%,#181090), color-stop(73%,#181090), color-stop(73%,#50b818), color-stop(82%,#50b818), color-stop(82%,#a838a0), color-stop(88%,#a838a0), color-stop(88%,#68d0a8), color-stop(90%,#68d0a8), color-stop(90%,#882000));
+    background: -webkit-linear-gradient(top,  #ffffff 3%,#000000 3%,#000000 6%,#b8b8b8 6%,#b8b8b8 8%,#5090d0 8%,#5090d0 23%,#98ff98 23%,#98ff98 25%,#808080 25%,#808080 32%,#484848 32%,#484848 34%,#c87870 34%,#c87870 39%,#472b1b 39%,#472b1b 44%,#a04800 44%,#a04800 59%,#f0e858 59%,#f0e858 62%,#181090 62%,#181090 73%,#50b818 73%,#50b818 82%,#a838a0 82%,#a838a0 88%,#68d0a8 88%,#68d0a8 90%,#882000 90%);
+    background: -o-linear-gradient(top,  #ffffff 3%,#000000 3%,#000000 6%,#b8b8b8 6%,#b8b8b8 8%,#5090d0 8%,#5090d0 23%,#98ff98 23%,#98ff98 25%,#808080 25%,#808080 32%,#484848 32%,#484848 34%,#c87870 34%,#c87870 39%,#472b1b 39%,#472b1b 44%,#a04800 44%,#a04800 59%,#f0e858 59%,#f0e858 62%,#181090 62%,#181090 73%,#50b818 73%,#50b818 82%,#a838a0 82%,#a838a0 88%,#68d0a8 88%,#68d0a8 90%,#882000 90%);
+    background: -ms-linear-gradient(top,  #ffffff 3%,#000000 3%,#000000 6%,#b8b8b8 6%,#b8b8b8 8%,#5090d0 8%,#5090d0 23%,#98ff98 23%,#98ff98 25%,#808080 25%,#808080 32%,#484848 32%,#484848 34%,#c87870 34%,#c87870 39%,#472b1b 39%,#472b1b 44%,#a04800 44%,#a04800 59%,#f0e858 59%,#f0e858 62%,#181090 62%,#181090 73%,#50b818 73%,#50b818 82%,#a838a0 82%,#a838a0 88%,#68d0a8 88%,#68d0a8 90%,#882000 90%);
+    background: linear-gradient(to bottom,  #ffffff 3%,#000000 3%,#000000 6%,#b8b8b8 6%,#b8b8b8 8%,#5090d0 8%,#5090d0 23%,#98ff98 23%,#98ff98 25%,#808080 25%,#808080 32%,#484848 32%,#484848 34%,#c87870 34%,#c87870 39%,#472b1b 39%,#472b1b 44%,#a04800 44%,#a04800 59%,#f0e858 59%,#f0e858 62%,#181090 62%,#181090 73%,#50b818 73%,#50b818 82%,#a838a0 82%,#a838a0 88%,#68d0a8 88%,#68d0a8 90%,#882000 90%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#882000',GradientType=0 );
+  }
+
+}
+section.blueScreen:before {
+  -webkit-animation-name: deCrunch;
+  -webkit-animation-delay: 15s;
+  -webkit-animation-duration: 0.25s;
+  -webkit-animation-iteration-count: 14;
+  -webkit-animation-timing-function: steps(1);
+}
+
+
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+/****************************************************/
+
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes startIntro {
+  to {
+    visibility: visible;
+  }
+}
+section.introScreen {
+  -webkit-animation-name: startIntro;
+  -webkit-animation-delay: 19s; /* Blue screen animation takes 19s */
+  -webkit-animation-fill-mode: forwards;
+
+  visibility: hidden;
+  background: #000;
+  border-color: #000;
+}
+section.introScreen:before,
+section.introScreen:after {
+  background: #000;
+}
+
+
+
+
+
+
+@-webkit-keyframes logoSwing {
+  0% {
+    left: 20px;
+  }
+  50% {
+    left: -81px;
+  }
+  100% {
+    left: 20px;
+  }
+}
+div.logo {
+  position: absolute;
+  top: 32px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+  height: 48px;
+  color: #6076c5;
+  overflow: hidden;
+}
+div.logo img {
+  position: absolute;
+
+  -webkit-animation-name: logoSwing;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+  -webkit-animation-fill-mode: forwards;
+
+  z-index: 9;
+}
+
+
+
+
+
+
+
+
+
+@-webkit-keyframes rasterSwing {
+  0% {
+    top: 0;
+  }
+  25% {
+    top: 84px;
+  }
+  50% {
+    top: 0px;
+  }
+  75% {
+    top: 84px;
+  }
+}
+@-webkit-keyframes rasterIndex {
+  50% {
+    z-index: 10;
+  }
+}
+
+div.logoRaster {
+  height: 50px;
+  left: -32px;
+  right: -32px;
+  z-index: 8;
+  position: absolute;
+
+  -webkit-animation-name: rasterSwing, rasterIndex;
+  -webkit-animation-duration: 8s, 4s;
+  -webkit-animation-iteration-count: infinite, infinite;
+  -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000),
+    steps(1);
+
+
+    background: -webkit-gradient(
+        linear,
+         left top,
+         left bottom,
+         color-stop(0%, #873b31),
+         color-stop(2%, #000000),
+         color-stop(2%, #873b31),
+         color-stop(4%, #873b31),
+         color-stop(4%, #873b31),
+         color-stop(6%, #873b31),
+         color-stop(6%, #ba7369),
+         color-stop(8%, #ba7369),
+         color-stop(8%, #873b31),
+         color-stop(10%, #873b31),
+         color-stop(10%, #ba7369),
+         color-stop(12%, #ba7369),
+         color-stop(12%, #ba7369),
+         color-stop(14%, #ba7369),
+         color-stop(14%, #dce78c),
+         color-stop(16%, #dce78c),
+         color-stop(16%, #ba7369),
+         color-stop(18%, #ba7369),
+         color-stop(18%, #dce78c),
+         color-stop(20%, #dce78c),
+         color-stop(20%, #dce78c),
+         color-stop(22%, #dce78c),
+         color-stop(22%, #ffffff),
+         color-stop(24%, #ffffff),
+         color-stop(24%, #dce78c),
+         color-stop(26%, #dce78c),
+         color-stop(26%, #ffffff),
+         color-stop(28%, #ffffff),
+         color-stop(28%, #ffffff),
+         color-stop(30%, #ffffff),
+         color-stop(30%, #dce78c),
+         color-stop(32%, #dce78c),
+         color-stop(32%, #ffffff),
+         color-stop(34%, #ffffff),
+         color-stop(34%, #dce78c),
+         color-stop(36%, #dce78c),
+         color-stop(36%, #dce78c),
+         color-stop(38%, #dce78c),
+         color-stop(38%, #ba7369),
+         color-stop(40%, #ba7369),
+         color-stop(40%, #dce78c),
+         color-stop(42%, #dce78c),
+         color-stop(42%, #ba7369),
+         color-stop(44%, #ba7369),
+         color-stop(44%, #ba7369),
+         color-stop(46%, #ba7369),
+         color-stop(46%, #873b31),
+         color-stop(48%, #873b31),
+         color-stop(48%, #ba7369),
+         color-stop(50%, #ba7369),
+         color-stop(50%, #873b31),
+         color-stop(52%, #873b31),
+         color-stop(52%, #873b31),
+         color-stop(54%, #873b31),
+         color-stop(54%, #000000),
+         color-stop(56%, #000000),
+         color-stop(56%, #873b31),
+         color-stop(58%, #873b31),
+         color-stop(58%, rgba(0,0,0,0)),
+         color-stop(100%, rgba(0,0,0,0))
+      );
+}
+
+
+
+@-webkit-keyframes textFlash {
+  0% { color: #000000; }
+  1% { color: #20398d; }
+  2% { color: #6076c5; }
+  3% { color: #86bec5; }
+  4% { color: #ffffff; }
+  5% { color: #86bec5; }
+  6% { color: #6076c5; }
+  7% { color: #20398d; }
+  8% { color: #000000; }
+  26% { color: #873b31; }
+  27% { color: #ba7369; }
+  28% { color: #dce78c; }
+  29% { color: #ffffff; }
+  30% { color: #dce78c; }
+  31% { color: #ba7369; }
+  32% { color: #873b31; }
+  33% { color: #000000; }
+  51% { color: #555555; }
+  52% { color: #808080; }
+  53% { color: #ababab; }
+  54% { color: #ffffff; }
+  55% { color: #ababab; }
+  56% { color: #808080; }
+  57% { color: #555555; }
+  58% { color: #000000; }
+  76% { color: #625000; }
+  77% { color: #74ab54; }
+  78% { color: #b7eb9b; }
+  79% { color: #ffffff; }
+  80% { color: #b7eb9b; }
+  81% { color: #74ab54; }
+  82% { color: #625000; }
+  83% { color: #000000; }
+}
+ul.presents {
+  z-index: 10;
+  font: normal 8px "giana";
+  color: #000000;
+
+  position: absolute;
+  top: 114px;
+  left: -32px;
+  right: -32px;
+
+  text-align: center;
+
+  padding: 17px 0; /* Making it 50px high */
+
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        color-stop(0%, #20398d),
+        color-stop(2%, #000000),
+        color-stop(2%, #20398d),
+        color-stop(4%, #20398d),
+        color-stop(4%, #20398d),
+        color-stop(6%, #20398d),
+        color-stop(6%, #6076c5),
+        color-stop(8%, #6076c5),
+        color-stop(8%, #20398d),
+        color-stop(10%, #20398d),
+        color-stop(10%, #6076c5),
+        color-stop(12%, #6076c5),
+        color-stop(12%, #6076c5),
+        color-stop(14%, #6076c5),
+        color-stop(14%, #86bec5),
+        color-stop(16%, #86bec5),
+        color-stop(16%, #6076c5),
+        color-stop(18%, #6076c5),
+        color-stop(18%, #86bec5),
+        color-stop(20%, #86bec5),
+        color-stop(20%, #86bec5),
+        color-stop(22%, #86bec5),
+        color-stop(22%, #ffffff),
+        color-stop(24%, #ffffff),
+        color-stop(24%, #86bec5),
+        color-stop(26%, #86bec5),
+        color-stop(26%, #ffffff),
+        color-stop(74%, #ffffff),
+        color-stop(74%, #86bec5),
+        color-stop(76%, #86bec5),
+        color-stop(76%, #ffffff),
+        color-stop(78%, #ffffff),
+        color-stop(78%, #86bec5),
+        color-stop(80%, #86bec5),
+        color-stop(80%, #86bec5),
+        color-stop(82%, #86bec5),
+        color-stop(82%, #6076c5),
+        color-stop(84%, #6076c5),
+        color-stop(84%, #86bec5),
+        color-stop(86%, #86bec5),
+        color-stop(86%, #6076c5),
+        color-stop(88%, #6076c5),
+        color-stop(88%, #6076c5),
+        color-stop(90%, #6076c5),
+        color-stop(90%, #20398d),
+        color-stop(92%, #20398d),
+        color-stop(92%, #6076c5),
+        color-stop(94%, #6076c5),
+        color-stop(94%, #20398d),
+        color-stop(96%, #20398d),
+        color-stop(96%, #20398d),
+        color-stop(98%, #20398d),
+        color-stop(98%, #000000),
+        color-stop(100%, #000000)
+  );
+}
+
+ul.presents li:first-child {
+  -webkit-animation-name: textFlash;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps(1);
+}
+ul.presents li:last-child {
+  -webkit-animation-name: textFlash;
+  -webkit-animation-duration: 10s;
+  -webkit-animation-delay: 0.2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps(1);
+}
+
+
+
+
+
+
+@-webkit-keyframes starScroll {
+  to {
+    left: -40em;
+  }
+}
+.starField {
+  position: relative;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  font: normal 8px "giana";
+  height: 4em; /* 32px */
+  width: 40em; /* 320 px */
+}
+.starField li {
+  position: relative;
+  display: inline;
+  left: 0;
+}
+.starField li:before {
+  content: ".";
+}
+/* Create an exact copy of each star */
+.starField li:after {
+  content: ".";
+  position: absolute;
+  top: 0;
+  left: 40em;
+}
+.starField li {
+  -webkit-animation-name: starScroll;
+  -webkit-animation-duration: 5s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: forwards;
+}
+.starField li:before,
+.starField li:after {
+  -webkit-animation-name: textFlash;
+  -webkit-animation-iteration-count: infinite;
+ -webkit-animation-timing-function: steps(1);
+  -webkit-animation-duration: 6.5s;
+  padding-left: 3em;
+}
+.starField li:nth-child(2n):before,
+.starField li:nth-child(2n):after {
+  padding-left: 4em;
+}
+.starField li:nth-child(3n):before,
+.starField li:nth-child(3n):after {
+  padding-left: 7em;
+}
+.starField li:nth-child(4n):before,
+.starField li:nth-child(4n):after {
+  padding-left: 2em;}
+
+/* Flash each star at a different time */
+.starField li:nth-child(1):before,
+.starField li:nth-child(1):after {
+  -webkit-animation-delay: -1s;
+}
+.starField li:nth-child(2):before,
+.starField li:nth-child(2):after {
+  -webkit-animation-delay: -2s;
+}
+.starField li:nth-child(3):before,
+.starField li:nth-child(3):after {
+  -webkit-animation-delay: -3s;
+}
+.starField li:nth-child(4):before,
+.starField li:nth-child(4):after {
+  -webkit-animation-delay: -4s;
+}
+.starField li:nth-child(5):before,
+.starField li:nth-child(5):after {
+  -webkit-animation-delay: -5s;
+}
+.starField li:nth-child(6):before,
+.starField li:nth-child(6):after {
+  -webkit-animation-delay: -6s;
+}
+.starField li:nth-child(7):before,
+.starField li:nth-child(7):after {
+  -webkit-animation-delay: -7s;
+}
+.starField li:nth-child(8):before,
+.starField li:nth-child(8):after {
+  -webkit-animation-delay: -8s;
+}
+.starField li:nth-child(9):before,
+.starField li:nth-child(9):after {
+  -webkit-animation-delay: -9s;
+}
+.starField li:nth-child(10):before,
+.starField li:nth-child(10):after {
+  -webkit-animation-delay: -10s;
+}
+.starField li:nth-child(11):before,
+.starField li:nth-child(11):after {
+  -webkit-animation-delay: -11s;
+}
+.starField li:nth-child(12):before,
+.starField li:nth-child(12):after {
+  -webkit-animation-delay: -12s;
+}
+.starField li:nth-child(13):before,
+.starField li:nth-child(13):after {
+  -webkit-animation-delay: -13s;
+}
+.starField li:nth-child(14):before,
+.starField li:nth-child(14):after {
+  -webkit-animation-delay: -14s;
+}
+.starField li:nth-child(15):before,
+.starField li:nth-child(15):after {
+  -webkit-animation-delay: -15s;
+}
+.starField li:nth-child(16):before,
+.starField li:nth-child(16):after {
+  -webkit-animation-delay: -16s;
+}
+.starField li:nth-child(17):before,
+.starField li:nth-child(17):after {
+  -webkit-animation-delay: -17s;
+}
+.starField li:nth-child(18):before,
+.starField li:nth-child(18):after {
+  -webkit-animation-delay: -18s;
+}
+.starField li:nth-child(19):before,
+.starField li:nth-child(19):after {
+  -webkit-animation-delay: -19s;
+}
+.starField li:nth-child(20):before,
+.starField li:nth-child(20):after {
+  -webkit-animation-delay: -20s;
+}
+.starField li:nth-child(21):before,
+.starField li:nth-child(21):after {
+  -webkit-animation-delay: -21s;
+}
+
+
+
+
+/* The scrollText */
+@-webkit-keyframes scrollText {
+  from {
+    text-indent: 40em;
+  }
+  to {
+    text-indent: -500px;
+  }
+}
+@-webkit-keyframes scrollTextBounce {
+  0% {
+    line-height: 8px;
+  }
+  50% {
+    line-height: 52px;
+  }
+  100% {
+    line-height: 8px;
+  }
+}
+
+p.scrollText {
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40em;
+  overflow: hidden;
+  font: normal 8px "giana";
+  white-space: nowrap;
+  text-indent: 40em;
+  height: 30px;
+  line-height: 8px;
+  color: #fff;
+
+  -webkit-animation-name: scrollText, scrollTextBounce;
+  -webkit-animation-duration: 8s, 2s;
+  -webkit-animation-iteration-count: infinite;
+  /*-webkit-animation-timing-function: linear, cubic-bezier(0.455, 0.030, 0.515, 0.955);*/
+  -webkit-animation-timing-function: linear, cubic-bezier(0.420, 0.000, 0.580, 1.000);
+}
+
