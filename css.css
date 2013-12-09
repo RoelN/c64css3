@@ -94,6 +94,9 @@ section {
 
   color: #6076c5;
   font: normal 8px "C64 User Mono";
+  text-transform: uppercase;
+
+  /*white-space: pre;*/
 
   z-index: 1;
 }
@@ -125,8 +128,8 @@ section:after {
 
 
 p {
-    white-space: pre;
     text-transform: uppercase;
+    white-space: pre;
 }
 
 
@@ -150,10 +153,10 @@ p {
 
 
 
-.loadingLine1,
-.loadingLine2,
-.loadingLine3,
-.loadingLine4 {
+.loading li:nth-child(2),
+.loading li:nth-child(3),
+.loading li:nth-child(4),
+.loading li:nth-child(5) {
   padding-right: 1em;
   width: 0;
   height: 0;
@@ -163,7 +166,12 @@ p {
   float: left;
   clear: left;
 }
-
+.loading {
+  white-space: normal
+}
+.loading li {
+  white-space: pre;
+}
 
 @-webkit-keyframes typingLine1 {
   from {
@@ -172,23 +180,23 @@ p {
   }
   to {
     height: auto;
-    width: 31em; /* Number of chars in line 1 + one for cursor */
+    width: 23em; /* Number of chars in line 1 + one for cursor */
     text-indent: 0;
   }
 }
-.loadingLine1 {
+.loading li:nth-child(2) {
   width: 1em;
   height: auto;
   text-indent: 1em;
 
   -webkit-animation-name: typingLine1;
   -webkit-animation-delay: 2s;
-  -webkit-animation-duration: 4s;
+  -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: steps(30);
+  -webkit-animation-timing-function: steps(22);
   -webkit-animation-fill-mode: forwards;
 }
-.loadingLine1:before {
+.loading li:nth-child(2):before {
   width: 1em;
   height: 1em;
   background: #6076c5;
@@ -210,8 +218,8 @@ p {
     height: auto;
   }
 }
-.loadingLine2 {
-  -webkit-animation-delay: 8s; /* after loadingLine1 */
+.loading li:nth-child(3) {
+  -webkit-animation-delay: 8s;
   -webkit-animation-duration: 1s;
   -webkit-animation-name: typingLine2;
   -webkit-animation-iteration-count: 1;
@@ -227,8 +235,8 @@ p {
     height: auto;
   }
 }
-.loadingLine3 {
-  -webkit-animation-delay: 11s; /* after loadingLine1 */
+.loading li:nth-child(4) {
+  -webkit-animation-delay: 11s;
   -webkit-animation-duration: 1s;
   -webkit-animation-name: typingLine2;
   -webkit-animation-iteration-count: 1;
@@ -250,7 +258,7 @@ p {
     text-indent: 0;
   }
 }
-.loadingLine4 {
+.loading li:nth-child(5) {
   width: 1em;
   height: auto;
   text-indent: 1em;
@@ -261,7 +269,7 @@ p {
   -webkit-animation-timing-function: steps(3);
   -webkit-animation-fill-mode: forwards;
 }
-.loadingLine4:before {
+.loading li:nth-child(5):before {
   width: 1em;
   height: 1em;
   content: "";
@@ -270,7 +278,7 @@ p {
 
   -webkit-animation-name: blinkingCursor;
   -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 11s; /* start right after loadingLine3 is finished */
+  -webkit-animation-delay: 11s; 
   -webkit-animation-iteration-count: 4; /* must be even, so we end on invisible cursor */
   -webkit-animation-timing-function: steps(1);
   -webkit-animation-fill-mode: forwards;
@@ -658,7 +666,7 @@ ul.presents li:first-child {
 ul.presents li:last-child {
   -webkit-animation-name: textFlash;
   -webkit-animation-duration: 10s;
-  -webkit-animation-delay: 0.2s;
+  -webkit-animation-delay: 0.5s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: steps(1);
 }
