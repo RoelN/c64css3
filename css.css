@@ -46,42 +46,35 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
-
-
-/* apply a natural box layout model to all elements */
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
-
-
-/* C64CSS3 */
-html, body {
-  height: 100%;
 }
-body {
-  background: #333;
-}
+
+/**
+ * Fonts
+ */
 @font-face {
    font-family: "C64 User Mono";
    src: url("C64_User_Mono_v1.0-STYLE.woff") format("woff");
 }
 @font-face {
-  font-family: 'giana';
-  src: url('giana.eot');
-  src: url('giana.eot?#iefix') format('embedded-opentype'),
-       url('giana.woff') format('woff'),
-       url('giana.ttf') format('truetype'),
-       url('giana.svg#gianamedium') format('svg');
+  font-family: "giana";
+  src: url("giana.eot");
+  src: url("giana.eot?#iefix") format("embedded-opentype"),
+       url("giana.woff") format("woff"),
+       url("giana.ttf") format("truetype"),
+       url("giana.svg#gianamedium") format("svg");
   font-weight: normal;
   font-style: normal;
 }
-main {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
 
-/* The screen */
+/**
+ * The C64 screen
+ */
+html, body {
+  height: 100%;
+  background: #333;
+}
 section {
   position: absolute;
   top: 50%;
@@ -89,14 +82,12 @@ section {
   width: 320px;
   height: 200px;
 
-  margin-top: -100px; /* Half the screen's height */
+  margin-top: -100px;
   margin-left: -160px;
 
   color: #6076c5;
   font: normal 8px "C64 User Mono";
   text-transform: uppercase;
-
-  /*white-space: pre;*/
 
   z-index: 1;
 }
@@ -123,180 +114,44 @@ section:after {
   z-index: -1;
 }
 
+/**
+ * Blue screen animations
+ */
 
-
-
-
-p {
-    text-transform: uppercase;
-    white-space: pre;
-}
-
-
-
-
-/* Blue screen */
-@-webkit-keyframes blinkingCursor {
-  0% {
+@-webkit-keyframes cursor {
+  50% {
     background: #6076c5;
   }
-  50% {
-    background: #20398d;
-  }
 }
-
-
-
-
-
-
-
-
-
-.loading li:nth-child(2),
-.loading li:nth-child(3),
-.loading li:nth-child(4),
-.loading li:nth-child(5) {
-  padding-right: 1em;
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  display: inline-block;
-  position: relative;
-  float: left;
-  clear: left;
-}
-.loading {
-  white-space: normal
-}
-.loading li {
-  white-space: pre;
-}
-
-@-webkit-keyframes typingLine1 {
+@-webkit-keyframes line_one {
   from {
     height: auto;
     text-indent: 0;
   }
   to {
     height: auto;
-    width: 23em; /* Number of chars in line 1 + one for cursor */
+    width: 23em; /* Number of chars + one for cursor */
     text-indent: 0;
   }
 }
-.loading li:nth-child(2) {
-  width: 1em;
-  height: auto;
-  text-indent: 1em;
-
-  -webkit-animation-name: typingLine1;
-  -webkit-animation-delay: 2s;
-  -webkit-animation-duration: 3s;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: steps(22);
-  -webkit-animation-fill-mode: forwards;
-}
-.loading li:nth-child(2):before {
-  width: 1em;
-  height: 1em;
-  background: #6076c5;
-  content: "";
-  position: absolute;
-  right: 0;
-
-  -webkit-animation-name: blinkingCursor;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-iteration-count: 8; /* must be even, so we end on invisible cursor */
-  -webkit-animation-timing-function: steps(1);
-  -webkit-animation-fill-mode: forwards;
-}
-
-
-@-webkit-keyframes typingLine2 {
+@-webkit-keyframes line_two {
   to {
     width: auto;
     height: auto;
   }
 }
-.loading li:nth-child(3) {
-  -webkit-animation-delay: 8s;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-name: typingLine2;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: steps(1);
-  -webkit-animation-fill-mode: forwards;
-}
-
-
-
-@-webkit-keyframes typingLine2 {
-  to {
-    width: auto;
-    height: auto;
-  }
-}
-.loading li:nth-child(4) {
-  -webkit-animation-delay: 11s;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-name: typingLine2;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: steps(1);
-  -webkit-animation-fill-mode: forwards;
-}
-
-
-
-
-@-webkit-keyframes typingLine4 {
+@-webkit-keyframes line_three {
   from {
     height: auto;
     text-indent: 0;
   }
   to {
     height: auto;
-    width: 4em; /* Number of chars in line 1 + one for cursor */
+    width: 4em; /* Number of chars + one for cursor */
     text-indent: 0;
   }
 }
-.loading li:nth-child(5) {
-  width: 1em;
-  height: auto;
-  text-indent: 1em;
-  -webkit-animation-delay: 12s;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-name: typingLine4;
-  -webkit-animation-iteration-count: 1;
-  -webkit-animation-timing-function: steps(3);
-  -webkit-animation-fill-mode: forwards;
-}
-.loading li:nth-child(5):before {
-  width: 1em;
-  height: 1em;
-  content: "";
-  position: absolute;
-  right: 0;
-
-  -webkit-animation-name: blinkingCursor;
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 11s; 
-  -webkit-animation-iteration-count: 4; /* must be even, so we end on invisible cursor */
-  -webkit-animation-timing-function: steps(1);
-  -webkit-animation-fill-mode: forwards;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-@-webkit-keyframes deCrunch {
+@-webkit-keyframes decrunch {
   20% {
     background: #ffffff;
     background: -moz-linear-gradient(top, #ffffff 5%, #000000 5%, #000000 10%, #b8b8b8 10%, #b8b8b8 16%, #5090d0 16%, #5090d0 23%, #98ff98 23%, #98ff98 28%, #808080 28%, #808080 33%, #484848 33%, #484848 40%, #c87870 40%, #c87870 46%, #472b1b 46%, #472b1b 51%, #a04800 51%, #a04800 57%, #f0e858 57%, #f0e858 62%, #181090 62%, #181090 69%, #50b818 69%, #50b818 78%, #a838a0 78%, #a838a0 86%, #68d0a8 86%, #68d0a8 95%, #882000 95%);
@@ -347,44 +202,201 @@ p {
     background: linear-gradient(to bottom,  #ffffff 3%,#000000 3%,#000000 6%,#b8b8b8 6%,#b8b8b8 8%,#5090d0 8%,#5090d0 23%,#98ff98 23%,#98ff98 25%,#808080 25%,#808080 32%,#484848 32%,#484848 34%,#c87870 34%,#c87870 39%,#472b1b 39%,#472b1b 44%,#a04800 44%,#a04800 59%,#f0e858 59%,#f0e858 62%,#181090 62%,#181090 73%,#50b818 73%,#50b818 82%,#a838a0 82%,#a838a0 88%,#68d0a8 88%,#68d0a8 90%,#882000 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#882000',GradientType=0 );
   }
-
 }
+
+/**
+ * All the typing stuff on the blue screen
+ */
+.loading li {
+  padding-right: 1em;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  display: inline-block;
+  position: relative;
+  float: left;
+  clear: left;
+  white-space: pre;
+}
+.loading li:first-child {
+  height: auto;
+  width: auto;
+}
+/* load"pixelambacht",8,1 */
+.loading li:nth-child(2) {
+  width: 1em;
+  height: auto;
+  text-indent: 1em;
+  -webkit-animation-name: line_one;
+  -webkit-animation-delay: 2s;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(22);
+  -webkit-animation-fill-mode: forwards;
+}
+.loading li:nth-child(2):before {
+  width: 1em;
+  height: 1em;
+  background: rgba(0,0,0,0);
+  content: "";
+  position: absolute;
+  right: 0;
+  -webkit-animation-name: cursor;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: 7; /* must be even, so we end on invisible cursor */
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+/* searching for pixelambacht... loading */
+.loading li:nth-child(3) {
+  -webkit-animation-delay: 7s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: line_two;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+/* ready */
+.loading li:nth-child(4) {
+  -webkit-animation-delay: 11s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: line_two;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+/* run */
+.loading li:nth-child(5) {
+  width: 1em;
+  height: auto;
+  text-indent: 1em;
+  -webkit-animation-delay: 12s;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: line_three;
+  -webkit-animation-iteration-count: 1;
+  -webkit-animation-timing-function: steps(3);
+  -webkit-animation-fill-mode: forwards;
+}
+.loading li:nth-child(5):before {
+  width: 1em;
+  height: 1em;
+  background: rgba(0,0,0,0);
+  content: "";
+  position: absolute;
+  right: 0;
+  -webkit-animation-name: cursor;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-delay: 10.5s;
+  -webkit-animation-iteration-count: 3; /* must be even, so we end on invisible cursor */
+  -webkit-animation-timing-function: steps(1);
+  -webkit-animation-fill-mode: forwards;
+}
+
+/**
+ * Decrunching
+ */
 section.blueScreen:before {
-  -webkit-animation-name: deCrunch;
+  -webkit-animation-name: decrunch;
   -webkit-animation-delay: 15s;
   -webkit-animation-duration: 0.25s;
   -webkit-animation-iteration-count: 14;
   -webkit-animation-timing-function: steps(1);
 }
 
-
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-/****************************************************/
-
-
-
-
-
-
-
-
-
-
-@-webkit-keyframes startIntro {
+/**
+ * Intro screen animations
+ */
+@-webkit-keyframes startintro {
   to {
     visibility: visible;
   }
 }
+@-webkit-keyframes logoswing {
+  50% {
+    left: -81px;
+  }
+}
+@-webkit-keyframes rasterswing {
+  50% {
+    top: 84px;
+  }
+}
+@-webkit-keyframes rasterindex {
+  50% {
+    z-index: 10;
+  }
+}
+@-webkit-keyframes textflash {
+  0% { color: #000000; }
+  1% { color: #20398d; }
+  2% { color: #6076c5; }
+  3% { color: #86bec5; }
+  4% { color: #ffffff; }
+  5% { color: #86bec5; }
+  6% { color: #6076c5; }
+  7% { color: #20398d; }
+  8% { color: #000000; }
+  26% { color: #873b31; }
+  27% { color: #ba7369; }
+  28% { color: #dce78c; }
+  29% { color: #ffffff; }
+  30% { color: #dce78c; }
+  31% { color: #ba7369; }
+  32% { color: #873b31; }
+  33% { color: #000000; }
+  51% { color: #555555; }
+  52% { color: #808080; }
+  53% { color: #ababab; }
+  54% { color: #ffffff; }
+  55% { color: #ababab; }
+  56% { color: #808080; }
+  57% { color: #555555; }
+  58% { color: #000000; }
+  76% { color: #625000; }
+  77% { color: #74ab54; }
+  78% { color: #b7eb9b; }
+  79% { color: #ffffff; }
+  80% { color: #b7eb9b; }
+  81% { color: #74ab54; }
+  82% { color: #625000; }
+  83% { color: #000000; }
+}
+@-webkit-keyframes starscroll {
+  to {
+    left: -40em;
+  }
+}
+@-webkit-keyframes scrolltext {
+  from {
+    text-indent: 40em;
+  }
+  to {
+    text-indent: -500px;
+  }
+}
+@-webkit-keyframes scrolltextbounce {
+  0% {
+    line-height: 8px;
+  }
+  50% {
+    line-height: 52px;
+  }
+  100% {
+    line-height: 8px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
 section.introScreen {
-  -webkit-animation-name: startIntro;
+  -webkit-animation-name: startintro;
   -webkit-animation-delay: 19s; /* Blue screen animation takes 19s */
   -webkit-animation-fill-mode: forwards;
 
@@ -402,17 +414,6 @@ section.introScreen:after {
 
 
 
-@-webkit-keyframes logoSwing {
-  0% {
-    left: 20px;
-  }
-  50% {
-    left: -81px;
-  }
-  100% {
-    left: 20px;
-  }
-}
 div.logo {
   position: absolute;
   top: 32px;
@@ -426,8 +427,9 @@ div.logo {
 }
 div.logo img {
   position: absolute;
+  left: 20px;
 
-  -webkit-animation-name: logoSwing;
+  -webkit-animation-name: logoswing;
   -webkit-animation-duration: 3s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000);
@@ -444,38 +446,20 @@ div.logo img {
 
 
 
-@-webkit-keyframes rasterSwing {
-  0% {
-    top: 0;
-  }
-  25% {
-    top: 84px;
-  }
-  50% {
-    top: 0px;
-  }
-  75% {
-    top: 84px;
-  }
-}
-@-webkit-keyframes rasterIndex {
-  50% {
-    z-index: 10;
-  }
-}
 
-div.logoRaster {
+div.rasterbar {
   height: 50px;
   left: -32px;
   right: -32px;
   z-index: 8;
   position: absolute;
 
-  -webkit-animation-name: rasterSwing, rasterIndex;
-  -webkit-animation-duration: 8s, 4s;
+  -webkit-animation-name: rasterswing, rasterindex;
+  -webkit-animation-duration: 4s, 4s;
   -webkit-animation-iteration-count: infinite, infinite;
-  -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000),
-    steps(1);
+  -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000), steps(1);
+  -webkit-animation-fill-mode: forwards;
+
 
 
     background: -webkit-gradient(
@@ -547,41 +531,7 @@ div.logoRaster {
 
 
 
-@-webkit-keyframes textFlash {
-  0% { color: #000000; }
-  1% { color: #20398d; }
-  2% { color: #6076c5; }
-  3% { color: #86bec5; }
-  4% { color: #ffffff; }
-  5% { color: #86bec5; }
-  6% { color: #6076c5; }
-  7% { color: #20398d; }
-  8% { color: #000000; }
-  26% { color: #873b31; }
-  27% { color: #ba7369; }
-  28% { color: #dce78c; }
-  29% { color: #ffffff; }
-  30% { color: #dce78c; }
-  31% { color: #ba7369; }
-  32% { color: #873b31; }
-  33% { color: #000000; }
-  51% { color: #555555; }
-  52% { color: #808080; }
-  53% { color: #ababab; }
-  54% { color: #ffffff; }
-  55% { color: #ababab; }
-  56% { color: #808080; }
-  57% { color: #555555; }
-  58% { color: #000000; }
-  76% { color: #625000; }
-  77% { color: #74ab54; }
-  78% { color: #b7eb9b; }
-  79% { color: #ffffff; }
-  80% { color: #b7eb9b; }
-  81% { color: #74ab54; }
-  82% { color: #625000; }
-  83% { color: #000000; }
-}
+
 ul.presents {
   z-index: 10;
   font: normal 8px "giana";
@@ -658,13 +608,13 @@ ul.presents {
 }
 
 ul.presents li:first-child {
-  -webkit-animation-name: textFlash;
+  -webkit-animation-name: textflash;
   -webkit-animation-duration: 10s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: steps(1);
 }
 ul.presents li:last-child {
-  -webkit-animation-name: textFlash;
+  -webkit-animation-name: textflash;
   -webkit-animation-duration: 10s;
   -webkit-animation-delay: 0.5s;
   -webkit-animation-iteration-count: infinite;
@@ -676,11 +626,6 @@ ul.presents li:last-child {
 
 
 
-@-webkit-keyframes starScroll {
-  to {
-    left: -40em;
-  }
-}
 .starField {
   position: relative;
   position: absolute;
@@ -707,7 +652,7 @@ ul.presents li:last-child {
   left: 40em;
 }
 .starField li {
-  -webkit-animation-name: starScroll;
+  -webkit-animation-name: starscroll;
   -webkit-animation-duration: 5s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
@@ -715,7 +660,7 @@ ul.presents li:last-child {
 }
 .starField li:before,
 .starField li:after {
-  -webkit-animation-name: textFlash;
+  -webkit-animation-name: textflash;
   -webkit-animation-iteration-count: infinite;
  -webkit-animation-timing-function: steps(1);
   -webkit-animation-duration: 6.5s;
@@ -822,29 +767,10 @@ ul.presents li:last-child {
 
 
 
-/* The scrollText */
-@-webkit-keyframes scrollText {
-  from {
-    text-indent: 40em;
-  }
-  to {
-    text-indent: -500px;
-  }
-}
-@-webkit-keyframes scrollTextBounce {
-  0% {
-    line-height: 8px;
-  }
-  50% {
-    line-height: 52px;
-  }
-  100% {
-    line-height: 8px;
-  }
-}
+/* The scrolltext */
 
-p.scrollText {
 
+p {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -857,7 +783,7 @@ p.scrollText {
   line-height: 8px;
   color: #fff;
 
-  -webkit-animation-name: scrollText, scrollTextBounce;
+  -webkit-animation-name: scrolltext, scrolltextbounce;
   -webkit-animation-duration: 8s, 2s;
   -webkit-animation-iteration-count: infinite;
   /*-webkit-animation-timing-function: linear, cubic-bezier(0.455, 0.030, 0.515, 0.955);*/
