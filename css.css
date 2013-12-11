@@ -384,11 +384,8 @@ section.bluescreen:before {
   }
 }
 @-webkit-keyframes scrolltext {
-  from {
-    text-indent: 40em;
-  }
   to {
-    text-indent: -500px;
+    text-indent: -160em; /* Should match text length */
   }
 }
 @-webkit-keyframes scrolltextbounce {
@@ -468,71 +465,11 @@ section.introscreen:after {
   -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000), steps(1);
   -webkit-animation-fill-mode: forwards;
 
-    background: -webkit-gradient(
-        linear,
-         left top,
-         left bottom,
-         color-stop(0%, #873b31),
-         color-stop(2%, #000000),
-         color-stop(2%, #873b31),
-         color-stop(4%, #873b31),
-         color-stop(4%, #873b31),
-         color-stop(6%, #873b31),
-         color-stop(6%, #ba7369),
-         color-stop(8%, #ba7369),
-         color-stop(8%, #873b31),
-         color-stop(10%, #873b31),
-         color-stop(10%, #ba7369),
-         color-stop(12%, #ba7369),
-         color-stop(12%, #ba7369),
-         color-stop(14%, #ba7369),
-         color-stop(14%, #dce78c),
-         color-stop(16%, #dce78c),
-         color-stop(16%, #ba7369),
-         color-stop(18%, #ba7369),
-         color-stop(18%, #dce78c),
-         color-stop(20%, #dce78c),
-         color-stop(20%, #dce78c),
-         color-stop(22%, #dce78c),
-         color-stop(22%, #ffffff),
-         color-stop(24%, #ffffff),
-         color-stop(24%, #dce78c),
-         color-stop(26%, #dce78c),
-         color-stop(26%, #ffffff),
-         color-stop(28%, #ffffff),
-         color-stop(28%, #ffffff),
-         color-stop(30%, #ffffff),
-         color-stop(30%, #dce78c),
-         color-stop(32%, #dce78c),
-         color-stop(32%, #ffffff),
-         color-stop(34%, #ffffff),
-         color-stop(34%, #dce78c),
-         color-stop(36%, #dce78c),
-         color-stop(36%, #dce78c),
-         color-stop(38%, #dce78c),
-         color-stop(38%, #ba7369),
-         color-stop(40%, #ba7369),
-         color-stop(40%, #dce78c),
-         color-stop(42%, #dce78c),
-         color-stop(42%, #ba7369),
-         color-stop(44%, #ba7369),
-         color-stop(44%, #ba7369),
-         color-stop(46%, #ba7369),
-         color-stop(46%, #873b31),
-         color-stop(48%, #873b31),
-         color-stop(48%, #ba7369),
-         color-stop(50%, #ba7369),
-         color-stop(50%, #873b31),
-         color-stop(52%, #873b31),
-         color-stop(52%, #873b31),
-         color-stop(54%, #873b31),
-         color-stop(54%, #000000),
-         color-stop(56%, #000000),
-         color-stop(56%, #873b31),
-         color-stop(58%, #873b31),
-         color-stop(58%, rgba(0,0,0,0)),
-         color-stop(100%, rgba(0,0,0,0))
-      );
+  background: -moz-linear-gradient(top,  #873b31 0%, #000000 2%, #873b31 2%, #873b31 4%, #873b31 4%, #873b31 6%, #ba7369 6%, #ba7369 8%, #873b31 8%, #873b31 10%, #ba7369 10%, #ba7369 12%, #ba7369 12%, #ba7369 14%, #dce78c 14%, #dce78c 16%, #ba7369 16%, #ba7369 18%, #dce78c 18%, #dce78c 20%, #dce78c 20%, #dce78c 22%, #ffffff 22%, #ffffff 24%, #dce78c 24%, #dce78c 26%, #ffffff 26%, #ffffff 28%, #ffffff 28%, #ffffff 30%, #dce78c 30%, #dce78c 32%, #ffffff 32%, #ffffff 34%, #dce78c 34%, #dce78c 36%, #dce78c 36%, #dce78c 38%, #ba7369 38%, #ba7369 40%, #dce78c 40%, #dce78c 42%, #ba7369 42%, #ba7369 44%, #ba7369 44%, #ba7369 46%, #873b31 46%, #873b31 48%, #ba7369 48%, #ba7369 50%, #873b31 50%, #873b31 52%, #873b31 52%, #873b31 54%, #000000 54%, #000000 56%, #873b31 56%, #873b31 58%, rgba(0,0,0,0) 58%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#873b31), color-stop(2%,#000000), color-stop(2%,#873b31), color-stop(4%,#873b31), color-stop(4%,#873b31), color-stop(6%,#873b31), color-stop(6%,#ba7369), color-stop(8%,#ba7369), color-stop(8%,#873b31), color-stop(10%,#873b31), color-stop(10%,#ba7369), color-stop(12%,#ba7369), color-stop(12%,#ba7369), color-stop(14%,#ba7369), color-stop(14%,#dce78c), color-stop(16%,#dce78c), color-stop(16%,#ba7369), color-stop(18%,#ba7369), color-stop(18%,#dce78c), color-stop(20%,#dce78c), color-stop(20%,#dce78c), color-stop(22%,#dce78c), color-stop(22%,#ffffff), color-stop(24%,#ffffff), color-stop(24%,#dce78c), color-stop(26%,#dce78c), color-stop(26%,#ffffff), color-stop(28%,#ffffff), color-stop(28%,#ffffff), color-stop(30%,#ffffff), color-stop(30%,#dce78c), color-stop(32%,#dce78c), color-stop(32%,#ffffff), color-stop(34%,#ffffff), color-stop(34%,#dce78c), color-stop(36%,#dce78c), color-stop(36%,#dce78c), color-stop(38%,#dce78c), color-stop(38%,#ba7369), color-stop(40%,#ba7369), color-stop(40%,#dce78c), color-stop(42%,#dce78c), color-stop(42%,#ba7369), color-stop(44%,#ba7369), color-stop(44%,#ba7369), color-stop(46%,#ba7369), color-stop(46%,#873b31), color-stop(48%,#873b31), color-stop(48%,#ba7369), color-stop(50%,#ba7369), color-stop(50%,#873b31), color-stop(52%,#873b31), color-stop(52%,#873b31), color-stop(54%,#873b31), color-stop(54%,#000000), color-stop(56%,#000000), color-stop(56%,#873b31), color-stop(58%,#873b31), color-stop(58%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #873b31 0%,#000000 2%,#873b31 2%,#873b31 4%,#873b31 4%,#873b31 6%,#ba7369 6%,#ba7369 8%,#873b31 8%,#873b31 10%,#ba7369 10%,#ba7369 12%,#ba7369 12%,#ba7369 14%,#dce78c 14%,#dce78c 16%,#ba7369 16%,#ba7369 18%,#dce78c 18%,#dce78c 20%,#dce78c 20%,#dce78c 22%,#ffffff 22%,#ffffff 24%,#dce78c 24%,#dce78c 26%,#ffffff 26%,#ffffff 28%,#ffffff 28%,#ffffff 30%,#dce78c 30%,#dce78c 32%,#ffffff 32%,#ffffff 34%,#dce78c 34%,#dce78c 36%,#dce78c 36%,#dce78c 38%,#ba7369 38%,#ba7369 40%,#dce78c 40%,#dce78c 42%,#ba7369 42%,#ba7369 44%,#ba7369 44%,#ba7369 46%,#873b31 46%,#873b31 48%,#ba7369 48%,#ba7369 50%,#873b31 50%,#873b31 52%,#873b31 52%,#873b31 54%,#000000 54%,#000000 56%,#873b31 56%,#873b31 58%,rgba(0,0,0,0) 58%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #873b31 0%,#000000 2%,#873b31 2%,#873b31 4%,#873b31 4%,#873b31 6%,#ba7369 6%,#ba7369 8%,#873b31 8%,#873b31 10%,#ba7369 10%,#ba7369 12%,#ba7369 12%,#ba7369 14%,#dce78c 14%,#dce78c 16%,#ba7369 16%,#ba7369 18%,#dce78c 18%,#dce78c 20%,#dce78c 20%,#dce78c 22%,#ffffff 22%,#ffffff 24%,#dce78c 24%,#dce78c 26%,#ffffff 26%,#ffffff 28%,#ffffff 28%,#ffffff 30%,#dce78c 30%,#dce78c 32%,#ffffff 32%,#ffffff 34%,#dce78c 34%,#dce78c 36%,#dce78c 36%,#dce78c 38%,#ba7369 38%,#ba7369 40%,#dce78c 40%,#dce78c 42%,#ba7369 42%,#ba7369 44%,#ba7369 44%,#ba7369 46%,#873b31 46%,#873b31 48%,#ba7369 48%,#ba7369 50%,#873b31 50%,#873b31 52%,#873b31 52%,#873b31 54%,#000000 54%,#000000 56%,#873b31 56%,#873b31 58%,rgba(0,0,0,0) 58%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #873b31 0%,#000000 2%,#873b31 2%,#873b31 4%,#873b31 4%,#873b31 6%,#ba7369 6%,#ba7369 8%,#873b31 8%,#873b31 10%,#ba7369 10%,#ba7369 12%,#ba7369 12%,#ba7369 14%,#dce78c 14%,#dce78c 16%,#ba7369 16%,#ba7369 18%,#dce78c 18%,#dce78c 20%,#dce78c 20%,#dce78c 22%,#ffffff 22%,#ffffff 24%,#dce78c 24%,#dce78c 26%,#ffffff 26%,#ffffff 28%,#ffffff 28%,#ffffff 30%,#dce78c 30%,#dce78c 32%,#ffffff 32%,#ffffff 34%,#dce78c 34%,#dce78c 36%,#dce78c 36%,#dce78c 38%,#ba7369 38%,#ba7369 40%,#dce78c 40%,#dce78c 42%,#ba7369 42%,#ba7369 44%,#ba7369 44%,#ba7369 46%,#873b31 46%,#873b31 48%,#ba7369 48%,#ba7369 50%,#873b31 50%,#873b31 52%,#873b31 52%,#873b31 54%,#000000 54%,#000000 56%,#873b31 56%,#873b31 58%,rgba(0,0,0,0) 58%,rgba(0,0,0,0) 100%); /* IE10+ */
 }
 
 /**
@@ -551,65 +488,12 @@ ul.presents {
 
   padding: 17px 0; /* Making it 50px high */
 
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        color-stop(0%, #20398d),
-        color-stop(2%, #000000),
-        color-stop(2%, #20398d),
-        color-stop(4%, #20398d),
-        color-stop(4%, #20398d),
-        color-stop(6%, #20398d),
-        color-stop(6%, #6076c5),
-        color-stop(8%, #6076c5),
-        color-stop(8%, #20398d),
-        color-stop(10%, #20398d),
-        color-stop(10%, #6076c5),
-        color-stop(12%, #6076c5),
-        color-stop(12%, #6076c5),
-        color-stop(14%, #6076c5),
-        color-stop(14%, #86bec5),
-        color-stop(16%, #86bec5),
-        color-stop(16%, #6076c5),
-        color-stop(18%, #6076c5),
-        color-stop(18%, #86bec5),
-        color-stop(20%, #86bec5),
-        color-stop(20%, #86bec5),
-        color-stop(22%, #86bec5),
-        color-stop(22%, #ffffff),
-        color-stop(24%, #ffffff),
-        color-stop(24%, #86bec5),
-        color-stop(26%, #86bec5),
-        color-stop(26%, #ffffff),
-        color-stop(74%, #ffffff),
-        color-stop(74%, #86bec5),
-        color-stop(76%, #86bec5),
-        color-stop(76%, #ffffff),
-        color-stop(78%, #ffffff),
-        color-stop(78%, #86bec5),
-        color-stop(80%, #86bec5),
-        color-stop(80%, #86bec5),
-        color-stop(82%, #86bec5),
-        color-stop(82%, #6076c5),
-        color-stop(84%, #6076c5),
-        color-stop(84%, #86bec5),
-        color-stop(86%, #86bec5),
-        color-stop(86%, #6076c5),
-        color-stop(88%, #6076c5),
-        color-stop(88%, #6076c5),
-        color-stop(90%, #6076c5),
-        color-stop(90%, #20398d),
-        color-stop(92%, #20398d),
-        color-stop(92%, #6076c5),
-        color-stop(94%, #6076c5),
-        color-stop(94%, #20398d),
-        color-stop(96%, #20398d),
-        color-stop(96%, #20398d),
-        color-stop(98%, #20398d),
-        color-stop(98%, #000000),
-        color-stop(100%, #000000)
-  );
+  background: -moz-linear-gradient(top, #20398d 0%, #000000 2%, #20398d 2%, #20398d 4%, #20398d 4%, #20398d 6%, #6076c5 6%, #6076c5 8%, #20398d 8%, #20398d 10%, #6076c5 10%, #6076c5 12%, #6076c5 12%, #6076c5 14%, #86bec5 14%, #86bec5 16%, #6076c5 16%, #6076c5 18%, #86bec5 18%, #86bec5 20%, #86bec5 20%, #86bec5 22%, #ffffff 22%, #ffffff 24%, #86bec5 24%, #86bec5 26%, #ffffff 26%, #ffffff 74%, #86bec5 74%, #86bec5 76%, #ffffff 76%, #ffffff 78%, #86bec5 78%, #86bec5 80%, #86bec5 80%, #86bec5 82%, #6076c5 82%, #6076c5 84%, #86bec5 84%, #86bec5 86%, #6076c5 86%, #6076c5 88%, #6076c5 88%, #6076c5 90%, #20398d 90%, #20398d 92%, #6076c5 92%, #6076c5 94%, #20398d 94%, #20398d 96%, #20398d 96%, #20398d 98%, #000000 98%, #000000 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#20398d), color-stop(2%,#000000), color-stop(2%,#20398d), color-stop(4%,#20398d), color-stop(4%,#20398d), color-stop(6%,#20398d), color-stop(6%,#6076c5), color-stop(8%,#6076c5), color-stop(8%,#20398d), color-stop(10%,#20398d), color-stop(10%,#6076c5), color-stop(12%,#6076c5), color-stop(12%,#6076c5), color-stop(14%,#6076c5), color-stop(14%,#86bec5), color-stop(16%,#86bec5), color-stop(16%,#6076c5), color-stop(18%,#6076c5), color-stop(18%,#86bec5), color-stop(20%,#86bec5), color-stop(20%,#86bec5), color-stop(22%,#86bec5), color-stop(22%,#ffffff), color-stop(24%,#ffffff), color-stop(24%,#86bec5), color-stop(26%,#86bec5), color-stop(26%,#ffffff), color-stop(74%,#ffffff), color-stop(74%,#86bec5), color-stop(76%,#86bec5), color-stop(76%,#ffffff), color-stop(78%,#ffffff), color-stop(78%,#86bec5), color-stop(80%,#86bec5), color-stop(80%,#86bec5), color-stop(82%,#86bec5), color-stop(82%,#6076c5), color-stop(84%,#6076c5), color-stop(84%,#86bec5), color-stop(86%,#86bec5), color-stop(86%,#6076c5), color-stop(88%,#6076c5), color-stop(88%,#6076c5), color-stop(90%,#6076c5), color-stop(90%,#20398d), color-stop(92%,#20398d), color-stop(92%,#6076c5), color-stop(94%,#6076c5), color-stop(94%,#20398d), color-stop(96%,#20398d), color-stop(96%,#20398d), color-stop(98%,#20398d), color-stop(98%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #20398d 0%,#000000 2%,#20398d 2%,#20398d 4%,#20398d 4%,#20398d 6%,#6076c5 6%,#6076c5 8%,#20398d 8%,#20398d 10%,#6076c5 10%,#6076c5 12%,#6076c5 12%,#6076c5 14%,#86bec5 14%,#86bec5 16%,#6076c5 16%,#6076c5 18%,#86bec5 18%,#86bec5 20%,#86bec5 20%,#86bec5 22%,#ffffff 22%,#ffffff 24%,#86bec5 24%,#86bec5 26%,#ffffff 26%,#ffffff 74%,#86bec5 74%,#86bec5 76%,#ffffff 76%,#ffffff 78%,#86bec5 78%,#86bec5 80%,#86bec5 80%,#86bec5 82%,#6076c5 82%,#6076c5 84%,#86bec5 84%,#86bec5 86%,#6076c5 86%,#6076c5 88%,#6076c5 88%,#6076c5 90%,#20398d 90%,#20398d 92%,#6076c5 92%,#6076c5 94%,#20398d 94%,#20398d 96%,#20398d 96%,#20398d 98%,#000000 98%,#000000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #20398d 0%,#000000 2%,#20398d 2%,#20398d 4%,#20398d 4%,#20398d 6%,#6076c5 6%,#6076c5 8%,#20398d 8%,#20398d 10%,#6076c5 10%,#6076c5 12%,#6076c5 12%,#6076c5 14%,#86bec5 14%,#86bec5 16%,#6076c5 16%,#6076c5 18%,#86bec5 18%,#86bec5 20%,#86bec5 20%,#86bec5 22%,#ffffff 22%,#ffffff 24%,#86bec5 24%,#86bec5 26%,#ffffff 26%,#ffffff 74%,#86bec5 74%,#86bec5 76%,#ffffff 76%,#ffffff 78%,#86bec5 78%,#86bec5 80%,#86bec5 80%,#86bec5 82%,#6076c5 82%,#6076c5 84%,#86bec5 84%,#86bec5 86%,#6076c5 86%,#6076c5 88%,#6076c5 88%,#6076c5 90%,#20398d 90%,#20398d 92%,#6076c5 92%,#6076c5 94%,#20398d 94%,#20398d 96%,#20398d 96%,#20398d 98%,#000000 98%,#000000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #20398d 0%,#000000 2%,#20398d 2%,#20398d 4%,#20398d 4%,#20398d 6%,#6076c5 6%,#6076c5 8%,#20398d 8%,#20398d 10%,#6076c5 10%,#6076c5 12%,#6076c5 12%,#6076c5 14%,#86bec5 14%,#86bec5 16%,#6076c5 16%,#6076c5 18%,#86bec5 18%,#86bec5 20%,#86bec5 20%,#86bec5 22%,#ffffff 22%,#ffffff 24%,#86bec5 24%,#86bec5 26%,#ffffff 26%,#ffffff 74%,#86bec5 74%,#86bec5 76%,#ffffff 76%,#ffffff 78%,#86bec5 78%,#86bec5 80%,#86bec5 80%,#86bec5 82%,#6076c5 82%,#6076c5 84%,#86bec5 84%,#86bec5 86%,#6076c5 86%,#6076c5 88%,#6076c5 88%,#6076c5 90%,#20398d 90%,#20398d 92%,#6076c5 92%,#6076c5 94%,#20398d 94%,#20398d 96%,#20398d 96%,#20398d 98%,#000000 98%,#000000 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #20398d 0%,#000000 2%,#20398d 2%,#20398d 4%,#20398d 4%,#20398d 6%,#6076c5 6%,#6076c5 8%,#20398d 8%,#20398d 10%,#6076c5 10%,#6076c5 12%,#6076c5 12%,#6076c5 14%,#86bec5 14%,#86bec5 16%,#6076c5 16%,#6076c5 18%,#86bec5 18%,#86bec5 20%,#86bec5 20%,#86bec5 22%,#ffffff 22%,#ffffff 24%,#86bec5 24%,#86bec5 26%,#ffffff 26%,#ffffff 74%,#86bec5 74%,#86bec5 76%,#ffffff 76%,#ffffff 78%,#86bec5 78%,#86bec5 80%,#86bec5 80%,#86bec5 82%,#6076c5 82%,#6076c5 84%,#86bec5 84%,#86bec5 86%,#6076c5 86%,#6076c5 88%,#6076c5 88%,#6076c5 90%,#20398d 90%,#20398d 92%,#6076c5 92%,#6076c5 94%,#20398d 94%,#20398d 96%,#20398d 96%,#20398d 98%,#000000 98%,#000000 100%); /* W3C */
 }
 ul.presents li:first-child:before {
   content: "c64 in css3";
@@ -665,7 +549,7 @@ ul.presents li:last-child:before {
 .starfield li:after {
   -webkit-animation-name: textflash;
   -webkit-animation-iteration-count: infinite;
- -webkit-animation-timing-function: steps(1);
+  -webkit-animation-timing-function: steps(1);
   -webkit-animation-duration: 6.5s;
   padding-left: 3em;
 }
@@ -688,90 +572,91 @@ ul.presents li:last-child:before {
 }
 .starfield li:nth-child(2):before,
 .starfield li:nth-child(2):after {
-  -webkit-animation-delay: -2s;
+  -webkit-animation-delay: -1.5s;
 }
 .starfield li:nth-child(3):before,
 .starfield li:nth-child(3):after {
-  -webkit-animation-delay: -3s;
+  -webkit-animation-delay: -2s;
 }
 .starfield li:nth-child(4):before,
 .starfield li:nth-child(4):after {
-  -webkit-animation-delay: -4s;
+  -webkit-animation-delay: -2.5s;
 }
 .starfield li:nth-child(5):before,
 .starfield li:nth-child(5):after {
-  -webkit-animation-delay: -5s;
+  -webkit-animation-delay: -3s;
 }
 .starfield li:nth-child(6):before,
 .starfield li:nth-child(6):after {
-  -webkit-animation-delay: -6s;
+  -webkit-animation-delay: -3.5s;
 }
 .starfield li:nth-child(7):before,
 .starfield li:nth-child(7):after {
-  -webkit-animation-delay: -7s;
+  -webkit-animation-delay: -4s;
 }
 .starfield li:nth-child(8):before,
 .starfield li:nth-child(8):after {
-  -webkit-animation-delay: -8s;
+  -webkit-animation-delay: -4.5s;
 }
 .starfield li:nth-child(9):before,
 .starfield li:nth-child(9):after {
-  -webkit-animation-delay: -9s;
+  -webkit-animation-delay: -5s;
 }
 .starfield li:nth-child(10):before,
 .starfield li:nth-child(10):after {
-  -webkit-animation-delay: -10s;
+  -webkit-animation-delay: -5.5s;
 }
 .starfield li:nth-child(11):before,
 .starfield li:nth-child(11):after {
-  -webkit-animation-delay: -11s;
+  -webkit-animation-delay: -6s;
 }
 .starfield li:nth-child(12):before,
 .starfield li:nth-child(12):after {
-  -webkit-animation-delay: -12s;
+  -webkit-animation-delay: -6.5s;
 }
 .starfield li:nth-child(13):before,
 .starfield li:nth-child(13):after {
-  -webkit-animation-delay: -13s;
+  -webkit-animation-delay: -7s;
 }
 .starfield li:nth-child(14):before,
 .starfield li:nth-child(14):after {
-  -webkit-animation-delay: -14s;
+  -webkit-animation-delay: -7.5s;
 }
 .starfield li:nth-child(15):before,
 .starfield li:nth-child(15):after {
-  -webkit-animation-delay: -15s;
+  -webkit-animation-delay: -8s;
 }
 .starfield li:nth-child(16):before,
 .starfield li:nth-child(16):after {
-  -webkit-animation-delay: -16s;
+  -webkit-animation-delay: -8.5s;
 }
 .starfield li:nth-child(17):before,
 .starfield li:nth-child(17):after {
-  -webkit-animation-delay: -17s;
+  -webkit-animation-delay: -9s;
 }
 .starfield li:nth-child(18):before,
 .starfield li:nth-child(18):after {
-  -webkit-animation-delay: -18s;
+  -webkit-animation-delay: -9.5s;
 }
 .starfield li:nth-child(19):before,
 .starfield li:nth-child(19):after {
-  -webkit-animation-delay: -19s;
+  -webkit-animation-delay: -10s;
 }
 .starfield li:nth-child(20):before,
 .starfield li:nth-child(20):after {
-  -webkit-animation-delay: -20s;
+  -webkit-animation-delay: -10.5s;
 }
 .starfield li:nth-child(21):before,
 .starfield li:nth-child(21):after {
-  -webkit-animation-delay: -21s;
+  -webkit-animation-delay: -11s;
 }
 
 /**
  * And finally the meat of a C64 cracktro... the scrolltext
  */
 p.scrolltext:before {
-  content: "welcome to my little c64 intro entirely done in css3!";
+  content: "welcome to my little c64 intro entirely done in css! no javascript was used \
+    for any of these effects... greetz to all the elite! pixelambacht swinging off...";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -784,7 +669,7 @@ p.scrolltext:before {
   color: #fff;
 
   -webkit-animation-name: scrolltext, scrolltextbounce;
-  -webkit-animation-duration: 8s, 2s;
+  -webkit-animation-duration: 12s, 2s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear, cubic-bezier(0.420, 0.000, 0.580, 1.000);
 }
