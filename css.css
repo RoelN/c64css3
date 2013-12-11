@@ -49,6 +49,11 @@ table {
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
+ 
+html, body {
+  height: 100%;
+  background: #333;
+}
 
 /**
  * Fonts
@@ -69,12 +74,8 @@ table {
 }
 
 /**
- * The C64 screen
+ * The blue C64 screen
  */
-html, body {
-  height: 100%;
-  background: #333;
-}
 section {
   position: absolute;
   top: 50%;
@@ -117,7 +118,6 @@ section:after {
 /**
  * Blue screen animations
  */
-
 @-webkit-keyframes cursor {
   50% {
     background: #6076c5;
@@ -216,13 +216,31 @@ section:after {
   position: relative;
   float: left;
   clear: left;
-  white-space: pre;
 }
 .loading li:first-child {
   height: auto;
   width: auto;
 }
-/* load"pixelambacht",8,1 */
+.loading li:before {
+  white-space: pre;
+}
+.loading li:first-child:before {
+  content: "\0a     **** commodore 64 basic v2 ****\
+    \0a\0a  64k ram system  38911 basic bytes free\
+    \0a\0aready.";  
+}
+.loading li:nth-child(2):before {
+  content: "load\"pixelambacht\",8,1";
+}
+.loading li:nth-child(3):before {
+  content: "\0asearching for pixelambacht\0aloading";
+}
+.loading li:nth-child(4):before {
+  content: "ready.";
+}
+.loading li:nth-child(5):before {
+  content: "run";
+}
 .loading li:nth-child(2) {
   width: 1em;
   height: auto;
@@ -234,12 +252,13 @@ section:after {
   -webkit-animation-timing-function: steps(22);
   -webkit-animation-fill-mode: forwards;
 }
-.loading li:nth-child(2):before {
+.loading li:nth-child(2):after {
   width: 1em;
   height: 1em;
   background: rgba(0,0,0,0);
   content: "";
   position: absolute;
+  top: 0;
   right: 0;
   -webkit-animation-name: cursor;
   -webkit-animation-duration: 1s;
@@ -247,7 +266,6 @@ section:after {
   -webkit-animation-timing-function: steps(1);
   -webkit-animation-fill-mode: forwards;
 }
-/* searching for pixelambacht... loading */
 .loading li:nth-child(3) {
   -webkit-animation-delay: 7s;
   -webkit-animation-duration: 1s;
@@ -256,7 +274,6 @@ section:after {
   -webkit-animation-timing-function: steps(1);
   -webkit-animation-fill-mode: forwards;
 }
-/* ready */
 .loading li:nth-child(4) {
   -webkit-animation-delay: 11s;
   -webkit-animation-duration: 1s;
@@ -265,7 +282,6 @@ section:after {
   -webkit-animation-timing-function: steps(1);
   -webkit-animation-fill-mode: forwards;
 }
-/* run */
 .loading li:nth-child(5) {
   width: 1em;
   height: auto;
@@ -277,12 +293,13 @@ section:after {
   -webkit-animation-timing-function: steps(3);
   -webkit-animation-fill-mode: forwards;
 }
-.loading li:nth-child(5):before {
+.loading li:nth-child(5):after {
   width: 1em;
   height: 1em;
   background: rgba(0,0,0,0);
   content: "";
   position: absolute;
+  top: 0;
   right: 0;
   -webkit-animation-name: cursor;
   -webkit-animation-duration: 1s;
@@ -295,7 +312,7 @@ section:after {
 /**
  * Decrunching
  */
-section.blueScreen:before {
+section.bluescreen:before {
   -webkit-animation-name: decrunch;
   -webkit-animation-delay: 15s;
   -webkit-animation-duration: 0.25s;
@@ -386,16 +403,10 @@ section.blueScreen:before {
   }
 }
 
-
-
-
-
-
-
-
-
-
-section.introScreen {
+/**
+ * The intro screem
+ */
+section.introscreen {
   -webkit-animation-name: startintro;
   -webkit-animation-delay: 19s; /* Blue screen animation takes 19s */
   -webkit-animation-fill-mode: forwards;
@@ -403,17 +414,19 @@ section.introScreen {
   visibility: hidden;
   background: #000;
   border-color: #000;
+
+  font: normal 8px "giana";
+  text-transform: uppercase;
+
 }
-section.introScreen:before,
-section.introScreen:after {
+section.introscreen:before,
+section.introscreen:after {
   background: #000;
 }
 
-
-
-
-
-
+/**
+ * The swinging Pixelambacht logo
+ */
 div.logo {
   position: absolute;
   top: 32px;
@@ -425,7 +438,8 @@ div.logo {
   color: #6076c5;
   overflow: hidden;
 }
-div.logo img {
+div.logo:before {
+  content: url(pixelambacht-logo.png);
   position: absolute;
   left: 20px;
 
@@ -438,16 +452,10 @@ div.logo img {
   z-index: 9;
 }
 
-
-
-
-
-
-
-
-
-
-div.rasterbar {
+/**
+ * The swinging raster bar
+ */
+section.introscreen:after {
   height: 50px;
   left: -32px;
   right: -32px;
@@ -459,8 +467,6 @@ div.rasterbar {
   -webkit-animation-iteration-count: infinite, infinite;
   -webkit-animation-timing-function: cubic-bezier(0.420, 0.000, 0.580, 1.000), steps(1);
   -webkit-animation-fill-mode: forwards;
-
-
 
     background: -webkit-gradient(
         linear,
@@ -529,12 +535,11 @@ div.rasterbar {
       );
 }
 
-
-
-
+/**
+ * Credits block
+ */
 ul.presents {
   z-index: 10;
-  font: normal 8px "giana";
   color: #000000;
 
   position: absolute;
@@ -606,14 +611,15 @@ ul.presents {
         color-stop(100%, #000000)
   );
 }
-
-ul.presents li:first-child {
+ul.presents li:first-child:before {
+  content: "c64 in css3";
   -webkit-animation-name: textflash;
   -webkit-animation-duration: 10s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: steps(1);
 }
-ul.presents li:last-child {
+ul.presents li:last-child:before {
+  content: "coded by pixelambacht";
   -webkit-animation-name: textflash;
   -webkit-animation-duration: 10s;
   -webkit-animation-delay: 0.5s;
@@ -621,162 +627,156 @@ ul.presents li:last-child {
   -webkit-animation-timing-function: steps(1);
 }
 
-
-
-
-
-
-.starField {
+/**
+ * Flashing startfield behind the scrolltext
+ */
+.starfield {
   position: relative;
   position: absolute;
   bottom: 0;
   left: 0;
   overflow: hidden;
-  font: normal 8px "giana";
   height: 4em; /* 32px */
   width: 40em; /* 320 px */
 }
-.starField li {
+.starfield li {
   position: relative;
   display: inline;
   left: 0;
 }
-.starField li:before {
+.starfield li:before {
   content: ".";
 }
 /* Create an exact copy of each star */
-.starField li:after {
+.starfield li:after {
   content: ".";
   position: absolute;
   top: 0;
   left: 40em;
 }
-.starField li {
+.starfield li {
   -webkit-animation-name: starscroll;
   -webkit-animation-duration: 5s;
   -webkit-animation-timing-function: linear;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-fill-mode: forwards;
 }
-.starField li:before,
-.starField li:after {
+.starfield li:before,
+.starfield li:after {
   -webkit-animation-name: textflash;
   -webkit-animation-iteration-count: infinite;
  -webkit-animation-timing-function: steps(1);
   -webkit-animation-duration: 6.5s;
   padding-left: 3em;
 }
-.starField li:nth-child(2n):before,
-.starField li:nth-child(2n):after {
+.starfield li:nth-child(2n):before,
+.starfield li:nth-child(2n):after {
   padding-left: 4em;
 }
-.starField li:nth-child(3n):before,
-.starField li:nth-child(3n):after {
+.starfield li:nth-child(3n):before,
+.starfield li:nth-child(3n):after {
   padding-left: 7em;
 }
-.starField li:nth-child(4n):before,
-.starField li:nth-child(4n):after {
+.starfield li:nth-child(4n):before,
+.starfield li:nth-child(4n):after {
   padding-left: 2em;}
 
 /* Flash each star at a different time */
-.starField li:nth-child(1):before,
-.starField li:nth-child(1):after {
+.starfield li:nth-child(1):before,
+.starfield li:nth-child(1):after {
   -webkit-animation-delay: -1s;
 }
-.starField li:nth-child(2):before,
-.starField li:nth-child(2):after {
+.starfield li:nth-child(2):before,
+.starfield li:nth-child(2):after {
   -webkit-animation-delay: -2s;
 }
-.starField li:nth-child(3):before,
-.starField li:nth-child(3):after {
+.starfield li:nth-child(3):before,
+.starfield li:nth-child(3):after {
   -webkit-animation-delay: -3s;
 }
-.starField li:nth-child(4):before,
-.starField li:nth-child(4):after {
+.starfield li:nth-child(4):before,
+.starfield li:nth-child(4):after {
   -webkit-animation-delay: -4s;
 }
-.starField li:nth-child(5):before,
-.starField li:nth-child(5):after {
+.starfield li:nth-child(5):before,
+.starfield li:nth-child(5):after {
   -webkit-animation-delay: -5s;
 }
-.starField li:nth-child(6):before,
-.starField li:nth-child(6):after {
+.starfield li:nth-child(6):before,
+.starfield li:nth-child(6):after {
   -webkit-animation-delay: -6s;
 }
-.starField li:nth-child(7):before,
-.starField li:nth-child(7):after {
+.starfield li:nth-child(7):before,
+.starfield li:nth-child(7):after {
   -webkit-animation-delay: -7s;
 }
-.starField li:nth-child(8):before,
-.starField li:nth-child(8):after {
+.starfield li:nth-child(8):before,
+.starfield li:nth-child(8):after {
   -webkit-animation-delay: -8s;
 }
-.starField li:nth-child(9):before,
-.starField li:nth-child(9):after {
+.starfield li:nth-child(9):before,
+.starfield li:nth-child(9):after {
   -webkit-animation-delay: -9s;
 }
-.starField li:nth-child(10):before,
-.starField li:nth-child(10):after {
+.starfield li:nth-child(10):before,
+.starfield li:nth-child(10):after {
   -webkit-animation-delay: -10s;
 }
-.starField li:nth-child(11):before,
-.starField li:nth-child(11):after {
+.starfield li:nth-child(11):before,
+.starfield li:nth-child(11):after {
   -webkit-animation-delay: -11s;
 }
-.starField li:nth-child(12):before,
-.starField li:nth-child(12):after {
+.starfield li:nth-child(12):before,
+.starfield li:nth-child(12):after {
   -webkit-animation-delay: -12s;
 }
-.starField li:nth-child(13):before,
-.starField li:nth-child(13):after {
+.starfield li:nth-child(13):before,
+.starfield li:nth-child(13):after {
   -webkit-animation-delay: -13s;
 }
-.starField li:nth-child(14):before,
-.starField li:nth-child(14):after {
+.starfield li:nth-child(14):before,
+.starfield li:nth-child(14):after {
   -webkit-animation-delay: -14s;
 }
-.starField li:nth-child(15):before,
-.starField li:nth-child(15):after {
+.starfield li:nth-child(15):before,
+.starfield li:nth-child(15):after {
   -webkit-animation-delay: -15s;
 }
-.starField li:nth-child(16):before,
-.starField li:nth-child(16):after {
+.starfield li:nth-child(16):before,
+.starfield li:nth-child(16):after {
   -webkit-animation-delay: -16s;
 }
-.starField li:nth-child(17):before,
-.starField li:nth-child(17):after {
+.starfield li:nth-child(17):before,
+.starfield li:nth-child(17):after {
   -webkit-animation-delay: -17s;
 }
-.starField li:nth-child(18):before,
-.starField li:nth-child(18):after {
+.starfield li:nth-child(18):before,
+.starfield li:nth-child(18):after {
   -webkit-animation-delay: -18s;
 }
-.starField li:nth-child(19):before,
-.starField li:nth-child(19):after {
+.starfield li:nth-child(19):before,
+.starfield li:nth-child(19):after {
   -webkit-animation-delay: -19s;
 }
-.starField li:nth-child(20):before,
-.starField li:nth-child(20):after {
+.starfield li:nth-child(20):before,
+.starfield li:nth-child(20):after {
   -webkit-animation-delay: -20s;
 }
-.starField li:nth-child(21):before,
-.starField li:nth-child(21):after {
+.starfield li:nth-child(21):before,
+.starfield li:nth-child(21):after {
   -webkit-animation-delay: -21s;
 }
 
-
-
-
-/* The scrolltext */
-
-
-p {
+/**
+ * And finally the meat of a C64 cracktro... the scrolltext
+ */
+p.scrolltext:before {
+  content: "welcome to my little c64 intro entirely done in css3!";
   position: absolute;
   bottom: 0;
   left: 0;
   width: 40em;
   overflow: hidden;
-  font: normal 8px "giana";
   white-space: nowrap;
   text-indent: 40em;
   height: 30px;
@@ -786,7 +786,5 @@ p {
   -webkit-animation-name: scrolltext, scrolltextbounce;
   -webkit-animation-duration: 8s, 2s;
   -webkit-animation-iteration-count: infinite;
-  /*-webkit-animation-timing-function: linear, cubic-bezier(0.455, 0.030, 0.515, 0.955);*/
   -webkit-animation-timing-function: linear, cubic-bezier(0.420, 0.000, 0.580, 1.000);
 }
-
