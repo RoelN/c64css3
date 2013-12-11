@@ -49,7 +49,7 @@ table {
 *, *:before, *:after {
   -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
 }
- 
+
 html, body {
   height: 100%;
   background: #333;
@@ -227,7 +227,7 @@ section:after {
 .loading li:first-child:before {
   content: "\0a     **** commodore 64 basic v2 ****\
     \0a\0a  64k ram system  38911 basic bytes free\
-    \0a\0aready.";  
+    \0a\0aready.";
 }
 .loading li:nth-child(2):before {
   content: "load\"pixelambacht\",8,1";
@@ -384,19 +384,34 @@ section.bluescreen:before {
   }
 }
 @-webkit-keyframes scrolltext {
+  from {
+    -webkit-animation-timing-function: linear;
+  }
   to {
+    -webkit-animation-timing-function: linear;
     text-indent: -160em; /* Should match text length */
   }
 }
 @-webkit-keyframes scrolltextbounce {
   0% {
     line-height: 8px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  25% {
+    line-height: 52px;
+    -webkit-animation-timing-function: ease-out;
   }
   50% {
-    line-height: 52px;
-  }
-  100% {
     line-height: 8px;
+    -webkit-animation-timing-function: ease-in;
+  }
+  75% {
+    line-height: 52px;
+    -webkit-animation-timing-function: ease-out;
+  }
+  50% {
+    line-height: 8px;
+    -webkit-animation-timing-function: ease-in;
   }
 }
 
@@ -669,7 +684,10 @@ p.scrolltext:before {
   color: #fff;
 
   -webkit-animation-name: scrolltext, scrolltextbounce;
+  -webkit-animation-delay: 20s; /* Blue screen animation takes 19s, wait another second */
   -webkit-animation-duration: 12s, 2s;
   -webkit-animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear, cubic-bezier(0.420, 0.000, 0.580, 1.000);
+  /*-webkit-animation-timing-function: linear; , cubic-bezier(0.420, 0.000, 0.580, 1.000);*/
+  -webkit-animation-fill-mode: none, forwards;
+
 }
