@@ -383,30 +383,13 @@ section.bluescreen:before {
     left: -40em;
   }
 }
-@-webkit-keyframes scrolltext {
-  from {
-    -webkit-animation-timing-function: linear;
-  }
+@-webkit-keyframes scroller {
   to {
-    -webkit-animation-timing-function: linear;
     text-indent: -160em; /* Should match text length */
   }
 }
 @-webkit-keyframes scrolltextbounce {
-  0% {
-    line-height: 8px;
-    -webkit-animation-timing-function: ease-in;
-  }
-  25% {
-    line-height: 52px;
-    -webkit-animation-timing-function: ease-out;
-  }
-  50% {
-    line-height: 8px;
-    -webkit-animation-timing-function: ease-in;
-  }
-  75% {
-    line-height: 52px;
+  from, to  {
     -webkit-animation-timing-function: ease-out;
   }
   50% {
@@ -669,9 +652,19 @@ ul.presents li:last-child:before {
 /**
  * And finally the meat of a C64 cracktro... the scrolltext
  */
+p.scrolltext {
+  /* Bounce-animation needs to be separate from the scroll animation, otherwise the
+     change in timing-functions will be applied to both animations */
+  line-height: 52px;
+
+  -webkit-animation-name: scrolltextbounce;
+  -webkit-animation-delay: 20s; /* Blue screen animation takes 19s, wait another second */
+  -webkit-animation-duration: 1s;
+  -webkit-animation-iteration-count: infinite;
+}
 p.scrolltext:before {
   content: "welcome to my little c64 intro entirely done in css! no javascript was used \
-    for any of these effects... greetz to all the elite! pixelambacht swinging off...";
+    for any of these effects... greetz to all the elite! pixelambacht signing off...";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -680,14 +673,12 @@ p.scrolltext:before {
   white-space: nowrap;
   text-indent: 40em;
   height: 30px;
-  line-height: 8px;
   color: #fff;
 
-  -webkit-animation-name: scrolltext, scrolltextbounce;
+  -webkit-animation-name: scroller;
   -webkit-animation-delay: 20s; /* Blue screen animation takes 19s, wait another second */
-  -webkit-animation-duration: 12s, 2s;
+  -webkit-animation-duration: 12s;
   -webkit-animation-iteration-count: infinite;
-  /*-webkit-animation-timing-function: linear; , cubic-bezier(0.420, 0.000, 0.580, 1.000);*/
-  -webkit-animation-fill-mode: none, forwards;
+  -webkit-animation-timing-function: linear;
 
 }
