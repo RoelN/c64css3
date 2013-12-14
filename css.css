@@ -1,3 +1,23 @@
+.spacebar:valid + section li + li {
+  display: none;
+}
+.spacebar:valid + section,
+.spacebar:valid + section + section {
+  -webkit-animation-name: none;
+}
+.spacebar:valid + section + section {
+  visibility: hidden;
+}
+.spacebar:valid {
+  z-index: 20;
+  background: transparent;
+  outline: none;
+  padding: 0;
+  border: none;
+  resize: none;
+  margin-top: -50px;
+}
+
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
@@ -76,6 +96,7 @@ html, body {
 /**
  * The blue C64 screen
  */
+.spacebar,
 section {
   position: absolute;
   top: 50%;
@@ -224,10 +245,13 @@ section:after {
 .loading li:before {
   white-space: pre;
 }
+.spacebar:before,  
 .loading li:first-child:before {
+    
   content: "\0a     **** commodore 64 basic v2 ****\
     \0a\0a  64k ram system  38911 basic bytes free\
     \0a\0aready.";
+  
 }
 .loading li:nth-child(2):before {
   content: "load\"pixelambacht\",8,1";
@@ -664,7 +688,7 @@ p.scrolltext {
 }
 p.scrolltext:before {
   content: "welcome to my little c64 intro entirely done in css! no javascript was used \
-    for any of these effects... greetz to all the elite! pixelambacht signing off...";
+    for these effects... greetz to all the elite! pixelambacht signing off...";
   position: absolute;
   bottom: 0;
   left: 0;
