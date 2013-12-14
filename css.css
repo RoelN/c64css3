@@ -1,28 +1,7 @@
-.spacebar:valid + section li + li {
-  display: none;
-}
-.spacebar:valid + section,
-.spacebar:valid + section + section {
-  -webkit-animation-name: none;
-}
-.spacebar:valid + section + section {
-  visibility: hidden;
-}
-.spacebar:valid {
-  z-index: 20;
-  background: transparent;
-  outline: none;
-  padding: 0;
-  border: none;
-  resize: none;
-  margin-top: -50px;
-}
-
 /* http://meyerweb.com/eric/tools/css/reset/
    v2.0 | 20110126
    License: none (public domain)
 */
-
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -140,6 +119,9 @@ section:after {
  * Blue screen animations
  */
 @-webkit-keyframes cursor {
+  0% {
+    background: #20398d;
+  }
   50% {
     background: #6076c5;
   }
@@ -245,13 +227,13 @@ section:after {
 .loading li:before {
   white-space: pre;
 }
-.spacebar:before,  
+.spacebar:before,
 .loading li:first-child:before {
-    
+
   content: "\0a     **** commodore 64 basic v2 ****\
     \0a\0a  64k ram system  38911 basic bytes free\
     \0a\0aready.";
-  
+
 }
 .loading li:nth-child(2):before {
   content: "load\"pixelambacht\",8,1";
@@ -409,10 +391,10 @@ section.bluescreen:before {
 }
 @-webkit-keyframes scroller {
   to {
-    text-indent: -160em; /* Should match text length */
+    text-indent: -220em; /* Should match text length */
   }
 }
-@-webkit-keyframes scrolltextbounce {
+@-webkit-keyframes scrollerbounce {
   from, to  {
     -webkit-animation-timing-function: ease-out;
   }
@@ -681,14 +663,15 @@ p.scrolltext {
      change in timing-functions will be applied to both animations */
   line-height: 52px;
 
-  -webkit-animation-name: scrolltextbounce;
+  -webkit-animation-name: scrollerbounce;
   -webkit-animation-delay: 20s; /* Blue screen animation takes 19s, wait another second */
   -webkit-animation-duration: 1s;
   -webkit-animation-iteration-count: infinite;
 }
 p.scrolltext:before {
   content: "welcome to my little c64 intro entirely done in css! no javascript was used \
-    for these effects... greetz to all the elite! pixelambacht signing off...";
+    for these effects... greetz to all the elite! press space to reset, and have fun \
+    typing some basic! pixelambacht signing off...";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -704,5 +687,32 @@ p.scrolltext:before {
   -webkit-animation-duration: 12s;
   -webkit-animation-iteration-count: infinite;
   -webkit-animation-timing-function: linear;
+}
 
+/**
+ * Act like a real C64 once space bar has been pressed
+ */
+.spacebar:valid + section li + li {
+  display: none;
+}
+.spacebar:valid + section,
+.spacebar:valid + section:before,
+.spacebar:valid + section + section {
+  -webkit-animation-name: none;
+}
+.spacebar:valid + section + section {
+  /* This selector doesn't work in Chrome, although it's valid :( */
+  visibility: hidden;
+}
+.spacebar {
+  background: transparent;
+  outline: none;
+  padding: 0;
+  border: none;
+  resize: none;
+}
+.spacebar:valid {
+  z-index: 20;
+  margin-top: -52px;
+  text-indent: -1em; /* Hide that first space */
 }
