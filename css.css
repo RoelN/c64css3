@@ -715,4 +715,6 @@ p.scrolltext:before {
   z-index: 20;
   margin-top: -104px;
   text-indent: -1em; /* Hide that first space */
+  height: 19em;
+  overflow: hidden;
 }
