@@ -80,14 +80,14 @@ section {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 320px;
-  height: 200px;
+  width: 640px;
+  height: 400px;
 
-  margin-top: -100px;
-  margin-left: -160px;
+  margin-top: -200px;
+  margin-left: -320px;
 
   color: #6076c5;
-  font: normal 8px "C64 User Mono";
+  font: normal 16px "C64 User Mono";
   text-transform: uppercase;
 
   z-index: 1;
@@ -95,10 +95,10 @@ section {
 /* Border of the sceen */
 section:before {
   position: absolute;
-  left: -32px;
-  right: -32px;
-  top: -37px;
-  bottom: -37px;
+  left: -64px;
+  right: -64px;
+  top: -74px;
+  bottom: -74px;
   content: "";
   background: #6076c5;
   z-index: -1;
@@ -336,12 +336,12 @@ section.bluescreen:before {
 }
 @-webkit-keyframes logoswing {
   50% {
-    left: -81px;
+    left: -162px;
   }
 }
 @-webkit-keyframes rasterswing {
   50% {
-    top: 84px;
+    top: 168px;
   }
 }
 @-webkit-keyframes rasterindex {
@@ -399,7 +399,7 @@ section.bluescreen:before {
     -webkit-animation-timing-function: ease-out;
   }
   50% {
-    line-height: 8px;
+    line-height: 1em;
     -webkit-animation-timing-function: ease-in;
   }
 }
@@ -416,7 +416,7 @@ section.introscreen {
   background: #000;
   border-color: #000;
 
-  font: normal 8px "giana";
+  font: normal 16px "giana";
   text-transform: uppercase;
 
 }
@@ -430,19 +430,19 @@ section.introscreen:after {
  */
 div.logo {
   position: absolute;
-  top: 32px;
+  top: 64px;
   left: 0;
   right: 0;
   text-align: center;
   margin: 0 auto;
-  height: 48px;
+  height: 96px;
   color: #6076c5;
   overflow: hidden;
 }
 div.logo:before {
   content: url(pixelambacht-logo.png);
   position: absolute;
-  left: 20px;
+  left: 40px;
 
   -webkit-animation-name: logoswing;
   -webkit-animation-duration: 3s;
@@ -457,9 +457,9 @@ div.logo:before {
  * The swinging raster bar
  */
 section.introscreen:after {
-  height: 50px;
-  left: -32px;
-  right: -32px;
+  height: 100px;
+  left: -64px;
+  right: -64px;
   z-index: 8;
   position: absolute;
 
@@ -484,13 +484,13 @@ ul.presents {
   color: #000000;
 
   position: absolute;
-  top: 114px;
-  left: -32px;
-  right: -32px;
+  top: 228px;
+  left: -64px;
+  right: -64px;
 
   text-align: center;
 
-  padding: 17px 0; /* Making it 50px high */
+  padding: 34px 0; /* Making it 100px high */
 
   background: -moz-linear-gradient(top, #20398d 0%, #000000 2%, #20398d 2%, #20398d 4%, #20398d 4%, #20398d 6%, #6076c5 6%, #6076c5 8%, #20398d 8%, #20398d 10%, #6076c5 10%, #6076c5 12%, #6076c5 12%, #6076c5 14%, #86bec5 14%, #86bec5 16%, #6076c5 16%, #6076c5 18%, #86bec5 18%, #86bec5 20%, #86bec5 20%, #86bec5 22%, #ffffff 22%, #ffffff 24%, #86bec5 24%, #86bec5 26%, #ffffff 26%, #ffffff 74%, #86bec5 74%, #86bec5 76%, #ffffff 76%, #ffffff 78%, #86bec5 78%, #86bec5 80%, #86bec5 80%, #86bec5 82%, #6076c5 82%, #6076c5 84%, #86bec5 84%, #86bec5 86%, #6076c5 86%, #6076c5 88%, #6076c5 88%, #6076c5 90%, #20398d 90%, #20398d 92%, #6076c5 92%, #6076c5 94%, #20398d 94%, #20398d 96%, #20398d 96%, #20398d 98%, #000000 98%, #000000 100%); /* FF3.6+ */
   background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#20398d), color-stop(2%,#000000), color-stop(2%,#20398d), color-stop(4%,#20398d), color-stop(4%,#20398d), color-stop(6%,#20398d), color-stop(6%,#6076c5), color-stop(8%,#6076c5), color-stop(8%,#20398d), color-stop(10%,#20398d), color-stop(10%,#6076c5), color-stop(12%,#6076c5), color-stop(12%,#6076c5), color-stop(14%,#6076c5), color-stop(14%,#86bec5), color-stop(16%,#86bec5), color-stop(16%,#6076c5), color-stop(18%,#6076c5), color-stop(18%,#86bec5), color-stop(20%,#86bec5), color-stop(20%,#86bec5), color-stop(22%,#86bec5), color-stop(22%,#ffffff), color-stop(24%,#ffffff), color-stop(24%,#86bec5), color-stop(26%,#86bec5), color-stop(26%,#ffffff), color-stop(74%,#ffffff), color-stop(74%,#86bec5), color-stop(76%,#86bec5), color-stop(76%,#ffffff), color-stop(78%,#ffffff), color-stop(78%,#86bec5), color-stop(80%,#86bec5), color-stop(80%,#86bec5), color-stop(82%,#86bec5), color-stop(82%,#6076c5), color-stop(84%,#6076c5), color-stop(84%,#86bec5), color-stop(86%,#86bec5), color-stop(86%,#6076c5), color-stop(88%,#6076c5), color-stop(88%,#6076c5), color-stop(90%,#6076c5), color-stop(90%,#20398d), color-stop(92%,#20398d), color-stop(92%,#6076c5), color-stop(94%,#6076c5), color-stop(94%,#20398d), color-stop(96%,#20398d), color-stop(96%,#20398d), color-stop(98%,#20398d), color-stop(98%,#000000), color-stop(100%,#000000)); /* Chrome,Safari4+ */
@@ -524,8 +524,8 @@ ul.presents li:last-child:before {
   bottom: 0;
   left: 0;
   overflow: hidden;
-  height: 4em; /* 32px */
-  width: 40em; /* 320 px */
+  height: 4em;
+  width: 40em;
 }
 .starfield li {
   position: relative;
@@ -661,7 +661,7 @@ ul.presents li:last-child:before {
 p.scrolltext {
   /* Bounce-animation needs to be separate from the scroll animation, otherwise the
      change in timing-functions will be applied to both animations */
-  line-height: 52px;
+  line-height: 7em;
 
   -webkit-animation-name: scrollerbounce;
   -webkit-animation-delay: 20s; /* Blue screen animation takes 19s, wait another second */
@@ -679,7 +679,7 @@ p.scrolltext:before {
   overflow: hidden;
   white-space: nowrap;
   text-indent: 40em;
-  height: 30px;
+  height: 60px;
   color: #fff;
 
   -webkit-animation-name: scroller;
@@ -713,6 +713,6 @@ p.scrolltext:before {
 }
 .spacebar:valid {
   z-index: 20;
-  margin-top: -52px;
+  margin-top: -104px;
   text-indent: -1em; /* Hide that first space */
 }
