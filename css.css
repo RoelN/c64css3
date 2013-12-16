@@ -53,7 +53,17 @@ html, body {
   height: 100%;
   background: #333;
 }
-
+.credits {
+  text-decoration: none;
+  font-family: Arial, Verdana, sans-serif;
+  color: #777;
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+}
+.credits:hover {
+  text-decoration: underline;
+}
 /**
  * Fonts
  */
