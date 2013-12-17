@@ -160,11 +160,11 @@ section:after {
 }
 @keyframes line_three {
   from {
-    height: auto;
+    height: 100%;
     text-indent: 0;
   }
   to {
-    height: auto;
+    height: 100%;
     width: 4em; /* Number of chars + one for cursor */
     text-indent: 0;
   }
@@ -260,7 +260,7 @@ section:after {
   animation-duration: 1s;
   animation-name: line_two;
   animation-iteration-count: 1;
-  animation-timing-function: steps(1);
+  animation-timing-function: steps(1, start);
   animation-fill-mode: forwards;
 }
 .loading li:nth-child(4) {
@@ -268,7 +268,7 @@ section:after {
   animation-duration: 1s;
   animation-name: line_two;
   animation-iteration-count: 1;
-  animation-timing-function: steps(1);
+  animation-timing-function: steps(1, start);
   animation-fill-mode: forwards;
 }
 .loading li:nth-child(5) {
@@ -279,7 +279,7 @@ section:after {
   animation-duration: 1s;
   animation-name: line_three;
   animation-iteration-count: 1;
-  animation-timing-function: steps(3);
+  animation-timing-function: steps(3, start);
   animation-fill-mode: forwards;
 }
 .loading li:nth-child(5):after {
@@ -394,6 +394,7 @@ section.introscreen {
   animation-name: startintro;
   animation-delay: 19s; /* Blue screen animation takes 19s */
   animation-fill-mode: forwards;
+  animation-duration: 1s; /* Doesn't matter */
 
   visibility: hidden;
   background: #000;
